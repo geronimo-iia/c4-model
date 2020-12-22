@@ -1,5 +1,6 @@
 import unittest
 from uuid import UUID
+
 from c4_model import *
 
 
@@ -14,14 +15,7 @@ class TestC4(unittest.TestCase):
         self.assertEqual("arn:c4:person:7fd91543-6b1f-3a69-91b9-9ae50369fab3", p.arn)
         p.description = "test"
         self.assertEqual("test", p.description)
-        self.assertEqual(
-            {
-                "description": "test",
-                "name": "p1",
-                "extended_attributes": {},
-            },
-            p.data,
-        )
+        self.assertEqual({"description": "test", "name": "p1", "extended_attributes": {}}, p.data)
 
         # compare on name
         self.assertEqual(p, Person(name="p1", description="test"))
@@ -35,11 +29,7 @@ class TestC4(unittest.TestCase):
         self.assertEqual("p1", ref.name)
         self.assertEqual("arn:c4:person:7fd91543-6b1f-3a69-91b9-9ae50369fab3", ref.arn)
         self.assertEqual(
-            {
-                "name": "p1",
-                "resource_id": UUID("7fd91543-6b1f-3a69-91b9-9ae50369fab3"),
-                "resource_type": "person",
-            },
+            {"name": "p1", "resource_id": UUID("7fd91543-6b1f-3a69-91b9-9ae50369fab3"), "resource_type": "person"},
             ref.data,
         )
 
@@ -53,24 +43,13 @@ class TestC4(unittest.TestCase):
         self.assertEqual("c4", p.provider)
         self.assertEqual(UUID("def66b36-2de7-31ce-bab6-91401ff441b1"), p.resource_id)
         self.assertEqual("software_system", p.resource_type)
-        self.assertEqual(
-            "arn:c4:software_system:def66b36-2de7-31ce-bab6-91401ff441b1", p.arn
-        )
+        self.assertEqual("arn:c4:software_system:def66b36-2de7-31ce-bab6-91401ff441b1", p.arn)
 
-        self.assertEqual(
-            {
-                "description": "amazing",
-                "name": "s1",
-                "extended_attributes": {},
-            },
-            p.data,
-        )
+        self.assertEqual({"description": "amazing", "name": "s1", "extended_attributes": {}}, p.data)
 
         # compare on name
         self.assertEqual(p, SoftwareSystem(name="s1", description="test"))
-        self.assertEqual(
-            p, SoftwareSystem(name="s1", description="another description")
-        )
+        self.assertEqual(p, SoftwareSystem(name="s1", description="another description"))
         self.assertNotEqual(p, SoftwareSystem(name="p2"))
 
         self.assertNotEqual(p, Person(name="s1"))
@@ -81,9 +60,7 @@ class TestC4(unittest.TestCase):
     def test_software_system_reference(self):
         ref = SoftwareSystemReference(name="p1")
         self.assertEqual("p1", ref.name)
-        self.assertEqual(
-            "arn:c4:software_system:09cdf16f-a6d8-3d00-9627-ffc972c55444", ref.arn
-        )
+        self.assertEqual("arn:c4:software_system:09cdf16f-a6d8-3d00-9627-ffc972c55444", ref.arn)
         self.assertEqual(
             {
                 "name": "p1",
@@ -131,15 +108,9 @@ class TestC4(unittest.TestCase):
     def test_container_reference(self):
         ref = ContainerReference(name="p1")
         self.assertEqual("p1", ref.name)
+        self.assertEqual("arn:c4:container:0266db1f-3b7c-3796-a899-00b34cab6f93", ref.arn)
         self.assertEqual(
-            "arn:c4:container:0266db1f-3b7c-3796-a899-00b34cab6f93", ref.arn
-        )
-        self.assertEqual(
-            {
-                "name": "p1",
-                "resource_id": UUID("0266db1f-3b7c-3796-a899-00b34cab6f93"),
-                "resource_type": "container",
-            },
+            {"name": "p1", "resource_id": UUID("0266db1f-3b7c-3796-a899-00b34cab6f93"), "resource_type": "container"},
             ref.data,
         )
 
@@ -166,13 +137,7 @@ class TestC4(unittest.TestCase):
         self.assertEqual("arn:c4:component:3ebca1af-c7d1-3240-9763-4c820d2d950c", p.arn)
 
         self.assertEqual(
-            {
-                "description": "amazing component",
-                "parent": None,
-                "name": "s1",
-                "extended_attributes": {},
-            },
-            p.data,
+            {"description": "amazing component", "parent": None, "name": "s1", "extended_attributes": {}}, p.data
         )
 
         # compare on name
@@ -188,15 +153,9 @@ class TestC4(unittest.TestCase):
     def test_component_reference(self):
         ref = ComponentReference(name="p1")
         self.assertEqual("p1", ref.name)
+        self.assertEqual("arn:c4:component:776690e1-ec29-39ba-89bf-66a3faa1a630", ref.arn)
         self.assertEqual(
-            "arn:c4:component:776690e1-ec29-39ba-89bf-66a3faa1a630", ref.arn
-        )
-        self.assertEqual(
-            {
-                "name": "p1",
-                "resource_id": UUID("776690e1-ec29-39ba-89bf-66a3faa1a630"),
-                "resource_type": "component",
-            },
+            {"name": "p1", "resource_id": UUID("776690e1-ec29-39ba-89bf-66a3faa1a630"), "resource_type": "component"},
             ref.data,
         )
 
@@ -233,18 +192,10 @@ class TestC4(unittest.TestCase):
         self.assertEqual("c4", p.provider)
         self.assertEqual(UUID("c24793ba-7a0c-3597-aae3-24aa39c127e2"), p.resource_id)
         self.assertEqual("code_element", p.resource_type)
-        self.assertEqual(
-            "arn:c4:code_element:c24793ba-7a0c-3597-aae3-24aa39c127e2", p.arn
-        )
+        self.assertEqual("arn:c4:code_element:c24793ba-7a0c-3597-aae3-24aa39c127e2", p.arn)
 
         self.assertEqual(
-            {
-                "description": "amazing code element",
-                "parent": None,
-                "name": "s1",
-                "extended_attributes": {},
-            },
-            p.data,
+            {"description": "amazing code element", "parent": None, "name": "s1", "extended_attributes": {}}, p.data
         )
 
         # compare on name
@@ -260,9 +211,7 @@ class TestC4(unittest.TestCase):
     def test_code_element_reference(self):
         ref = CodeElementReference(name="p1")
         self.assertEqual("p1", ref.name)
-        self.assertEqual(
-            "arn:c4:code_element:044a817c-a0b2-3a87-bc3d-3caf272e5769", ref.arn
-        )
+        self.assertEqual("arn:c4:code_element:044a817c-a0b2-3a87-bc3d-3caf272e5769", ref.arn)
         self.assertEqual(
             {
                 "name": "p1",
@@ -299,14 +248,10 @@ class TestC4(unittest.TestCase):
 
     def test_relation_ship(self):
         r = RelationShip(
-            name="test",
-            origin=ContainerReference(name="container"),
-            target=ContainerReference(name="target_container"),
+            name="test", origin=ContainerReference(name="container"), target=ContainerReference(name="target_container")
         )
         self.assertEqual("test", r.name)
-        self.assertEqual(
-            "arn:c4:relation_ship:a619e61a-4ec6-3872-9cd7-6e42d3ff93c6", r.arn
-        )
+        self.assertEqual("arn:c4:relation_ship:a619e61a-4ec6-3872-9cd7-6e42d3ff93c6", r.arn)
         self.assertIsNone(r.description)
         self.assertIsNone(r.technology)
         self.assertEqual(r.origin, Container(name="container"))
@@ -332,57 +277,23 @@ class TestC4(unittest.TestCase):
         )
 
     def test_model_reference(self):
-        self.assertEqual(
-            ModelReference.PERSON.create_reference("aname"), PersonReference("aname")
-        )
+        self.assertEqual(ModelReference.PERSON.create_reference("aname"), PersonReference("aname"))
 
-        self.assertEqual(
-            ModelReference.SOFTWARE_SYSTEM.create_reference("aname"),
-            SoftwareSystemReference("aname"),
-        )
-        self.assertEqual(
-            ModelReference.CONTAINER.create_reference("aname"),
-            ContainerReference("aname"),
-        )
-        self.assertEqual(
-            ModelReference.COMPONENT.create_reference("aname"),
-            ComponentReference("aname"),
-        )
-        self.assertEqual(
-            ModelReference.CODE_ELEMENT.create_reference("aname"),
-            CodeElementReference("aname"),
-        )
+        self.assertEqual(ModelReference.SOFTWARE_SYSTEM.create_reference("aname"), SoftwareSystemReference("aname"))
+        self.assertEqual(ModelReference.CONTAINER.create_reference("aname"), ContainerReference("aname"))
+        self.assertEqual(ModelReference.COMPONENT.create_reference("aname"), ComponentReference("aname"))
+        self.assertEqual(ModelReference.CODE_ELEMENT.create_reference("aname"), CodeElementReference("aname"))
 
     def test_model_reference_lookup_by_name(self):
         self.assertEqual(ModelReference.PERSON, ModelReference.from_name("person"))
-        self.assertEqual(
-            ModelReference.SOFTWARE_SYSTEM, ModelReference.from_name("software_system")
-        )
-        self.assertEqual(
-            ModelReference.CONTAINER, ModelReference.from_name("container")
-        )
-        self.assertEqual(
-            ModelReference.COMPONENT, ModelReference.from_name("component")
-        )
-        self.assertEqual(
-            ModelReference.CODE_ELEMENT, ModelReference.from_name("code_element")
-        )
+        self.assertEqual(ModelReference.SOFTWARE_SYSTEM, ModelReference.from_name("software_system"))
+        self.assertEqual(ModelReference.CONTAINER, ModelReference.from_name("container"))
+        self.assertEqual(ModelReference.COMPONENT, ModelReference.from_name("component"))
+        self.assertEqual(ModelReference.CODE_ELEMENT, ModelReference.from_name("code_element"))
 
     def test_model_reference_lookup_by_resource_type(self):
-        self.assertEqual(
-            ModelReference.PERSON, ModelReference.from_resource_type("person")
-        )
-        self.assertEqual(
-            ModelReference.SOFTWARE_SYSTEM,
-            ModelReference.from_resource_type("software_system"),
-        )
-        self.assertEqual(
-            ModelReference.CONTAINER, ModelReference.from_resource_type("container")
-        )
-        self.assertEqual(
-            ModelReference.COMPONENT, ModelReference.from_resource_type("component")
-        )
-        self.assertEqual(
-            ModelReference.CODE_ELEMENT,
-            ModelReference.from_resource_type("code_element"),
-        )
+        self.assertEqual(ModelReference.PERSON, ModelReference.from_resource_type("person"))
+        self.assertEqual(ModelReference.SOFTWARE_SYSTEM, ModelReference.from_resource_type("software_system"))
+        self.assertEqual(ModelReference.CONTAINER, ModelReference.from_resource_type("container"))
+        self.assertEqual(ModelReference.COMPONENT, ModelReference.from_resource_type("component"))
+        self.assertEqual(ModelReference.CODE_ELEMENT, ModelReference.from_resource_type("code_element"))

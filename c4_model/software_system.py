@@ -1,14 +1,10 @@
 """SoftwareSystem model."""
-from typing import Dict, Optional
 from dataclasses import dataclass
+from typing import Dict, Optional
 
 from .definition import ExtendedModel, Reference
 
-
-__all__ = [
-    "SoftwareSystem",
-    "SoftwareSystemReference",
-]
+__all__ = ["SoftwareSystem", "SoftwareSystemReference"]
 
 
 @dataclass(eq=False)
@@ -28,7 +24,7 @@ class SoftwareSystem(ExtendedModel):
         return SoftwareSystem(
             name=data["name"],
             description=data.get("description"),
-            extended_attributes=data.get("extended_attributes"),
+            extended_attributes=data.get("extended_attributes", {}),
         )
 
 

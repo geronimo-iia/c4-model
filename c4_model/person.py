@@ -1,14 +1,10 @@
 """Person Model."""
-from typing import Dict, Optional
 from dataclasses import dataclass
+from typing import Dict, Optional
 
 from .definition import ExtendedModel, Reference
 
-
-__all__ = [
-    "Person",
-    "PersonReference",
-]
+__all__ = ["Person", "PersonReference"]
 
 
 @dataclass(eq=False)
@@ -26,7 +22,7 @@ class Person(ExtendedModel):
         return Person(
             name=data["name"],
             description=data.get("description"),
-            extended_attributes=data.get("extended_attributes"),
+            extended_attributes=data.get("extended_attributes", {}),
         )
 
 

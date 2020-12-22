@@ -1,13 +1,11 @@
-from typing import Dict, Optional
 from dataclasses import dataclass
-from .definition import ExtendedModel, Reference
+from typing import Dict, Optional
 
 from container import ContainerReference
 
-__all__ = [
-    "Component",
-    "ComponentReference",
-]
+from .definition import ExtendedModel, Reference
+
+__all__ = ["Component", "ComponentReference"]
 
 
 @dataclass(eq=False)
@@ -38,7 +36,7 @@ class Component(ExtendedModel):
         item = Component(
             name=data["name"],
             description=data.get("description"),
-            extended_attributes=data.get("extended_attributes"),
+            extended_attributes=data.get("extended_attributes", {}),
         )
         if "parent" in data:
             item.attach(name=data["parent"]["name"])

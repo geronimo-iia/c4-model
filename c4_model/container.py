@@ -1,13 +1,10 @@
-from typing import Dict, Optional
 from dataclasses import dataclass
-from .definition import ExtendedModel, Reference
+from typing import Dict, Optional
 
+from .definition import ExtendedModel, Reference
 from .software_system import SoftwareSystemReference
 
-__all__ = [
-    "Container",
-    "ContainerReference",
-]
+__all__ = ["Container", "ContainerReference"]
 
 
 @dataclass(eq=False)
@@ -32,7 +29,7 @@ class Container(ExtendedModel):
             name=data["name"],
             technology=data.get("technology"),
             description=data.get("description"),
-            extended_attributes=data.get("extended_attributes"),
+            extended_attributes=data.get("extended_attributes", {}),
         )
         if "parent" in data:
             item.attach(name=data["parent"]["name"])

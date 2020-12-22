@@ -1,7 +1,8 @@
 """Definition."""
+from dataclasses import InitVar, asdict, dataclass, field
 from typing import Dict, Optional
-from dataclasses import asdict, dataclass, field, InitVar
 from uuid import UUID, uuid3
+
 from .util import camel_to_snake
 
 __all__ = ["PROVIDER_CODE", "NAMESPACE_C4", "get_resource_id", "get_arn", "Reference", "BaseModel", "ExtendedModel"]
@@ -95,4 +96,4 @@ class BaseModel:
 class ExtendedModel(BaseModel):
     """Add extended attributes."""
 
-    extended_attributes: Optional[Dict[str, str]] = field(default_factory=dict)
+    extended_attributes: Dict[str, str] = field(default_factory=dict)
