@@ -48,7 +48,6 @@ darglint = "^1.1.2" # A utility for ensuring Google-style docstrings stay up to 
 pydocstyle = "^5.0.2" # Python docstring style checker
 mypy = "*"
 
-pre-commit = "^1.21.0" # A framework for managing and maintaining multi-language pre-commit hooks.
 
 # Unit Testing
 pytest = "^6" # pytest: simple powerful testing with Python
