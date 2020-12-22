@@ -52,7 +52,7 @@ requirements.txt: poetry.lock ## Generate requirements.txt
 check: install   ## Run linters and static analysis
 	poetry run isort $(PACKAGES)
 	poetry run black $(PACKAGES)
-	poetry run flakehell lint $(PACKAGES)
+	poetry run flakehell lint $(PACKAGE)
 	poetry run mypy $(PACKAGE)
 
 # TESTS #######################################################################
