@@ -2,6 +2,13 @@ import unittest
 from uuid import UUID
 
 from c4_model import *
+from c4_model.person import PersonReference
+from c4_model.software_system import SoftwareSystemReference
+from c4_model.container import ContainerReference
+from c4_model.component import ComponentReference
+from c4_model.code_element import CodeElementReference
+from c4_model.relation_ship import ModelReference
+
 
 
 class TestC4(unittest.TestCase):
