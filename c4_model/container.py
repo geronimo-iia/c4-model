@@ -13,6 +13,11 @@ class Container(ExtendedModel):
 
     A container represents something that hosts code or data.
     A container is something that needs to be running in order for the overall software system to work.
+
+    A container is essentially a context or boundary inside which some code is executed or some data is stored.
+    And each container is a separately deployable/runnable thing or runtime environment,
+    typically (but not always) running in its own process space.
+    Because of this, communication between containers typically takes the form of an inter-process communication.
     """
 
     parent: Optional[SoftwareSystemReference] = None
@@ -25,6 +30,14 @@ class Container(ExtendedModel):
 
     @classmethod
     def from_resource(cls, data: Dict) -> "Container":
+        """Instanciate a Container.
+
+        Args:
+            data (Dict): dictionnary of this instance.
+
+        Returns:
+            (Container): a Container instance.
+        """
         item = Container(
             name=data["name"],
             technology=data.get("technology"),
@@ -37,5 +50,7 @@ class Container(ExtendedModel):
 
 
 class ContainerReference(Reference):
+    """Container reference."""
+
     def __init__(self, name: str):
         super().__init__(c4_class_name=Container.__name__, name=name)
