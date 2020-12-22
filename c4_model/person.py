@@ -13,12 +13,21 @@ class Person(ExtendedModel):
 
     However you think about your users (as actors, roles, personas, etc),
     people are the various human users of your software system.
+    A person represents one of the human users of your software system (e.g. actors, roles, personas, etc).
     """
 
     description: Optional[str] = None
 
     @classmethod
     def from_resource(cls, data: Dict) -> "Person":
+        """Instanciate a Person.
+
+        Args:
+            data (Dict): dictionnary of this instance.
+
+        Returns:
+            (Person): a Person instance.
+        """
         return Person(
             name=data["name"],
             description=data.get("description"),
@@ -27,5 +36,7 @@ class Person(ExtendedModel):
 
 
 class PersonReference(Reference):
+    """Person reference."""
+
     def __init__(self, name: str):
         super().__init__(c4_class_name=Person.__name__, name=name)
