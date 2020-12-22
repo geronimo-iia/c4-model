@@ -13,23 +13,23 @@ PROVIDER_CODE = "c4"
 NAMESPACE_C4 = UUID("51d76b7f-57a7-4a63-9d88-3c2c0490e518")
 
 
-def get_resource_id(class_name: str, name: str) -> UUID:
-    """Returns a resource identifier.
+def get_resource_id(class_name: str, name: str) -> str:
+    """Return a resource identifier.
 
-    Arguments:
+    Args:
         class_name (str): class name of model
         name (str): name of the model
 
     Returns:
-        (UUID): a resource identifier.
+        (str): a resource identifier.
     """
-    return uuid3(NAMESPACE_C4, f"{class_name}:{name.replace(' ', '_').lower()}")
+    return str(uuid3(NAMESPACE_C4, f"{class_name}:{name.replace(' ', '_').lower()}"))
 
 
-def get_arn(resource_type: str, resource_id) -> str:
-    """Returns an arn.
+def get_arn(resource_type: str, resource_id: str) -> str:
+    """Return an arn.
 
-    Arguments:
+    Args:
         resource_type (str): resource type
         resource_id (str): resource identifier
 
@@ -41,7 +41,13 @@ def get_arn(resource_type: str, resource_id) -> str:
 
 @dataclass
 class Reference:
-    """Internale Reference implementation."""
+    """Internale Reference implementation.
+
+    Attributes:
+        name (str): resource name
+        resource_type (str): resource type
+        resource_id (str): resource identifier
+    """
 
     name: str
     resource_type: Optional[str] = None
@@ -62,7 +68,7 @@ class Reference:
 
     @property
     def arn(self) -> str:
-        """Returns arn.
+        """Return arn.
 
         Returns:
             (str): arn of this instance
@@ -71,7 +77,7 @@ class Reference:
 
     @property
     def data(self) -> Dict:
-        """Returns a dictionnary of this instance.
+        """Return a dictionnary of this instance.
 
         Returns:
             (Dict): dictionnary of this instance.
@@ -81,7 +87,7 @@ class Reference:
     def __eq__(self, other) -> bool:
         """Compare two instance of Reference.
 
-        Arguments:
+        Args:
             other: other instance to compare.
 
         Returns:
@@ -94,13 +100,17 @@ class Reference:
 
 @dataclass
 class BaseModel:
-    """Abstract root model."""
+    """Abstract c4 root model.
+
+    Attributes:
+        name (str): model name.
+    """
 
     name: str
 
     @property
     def provider(self):
-        """Returns provider.
+        """Return provider.
 
         Returns:
             (str): provider of this instance
@@ -109,7 +119,7 @@ class BaseModel:
 
     @property
     def resource_type(self):
-        """Returns resource type.
+        """Return resource type.
 
         Returns:
             (str): resource type of this instance
@@ -118,7 +128,7 @@ class BaseModel:
 
     @property
     def resource_id(self):
-        """Returns resource identifier.
+        """Return resource identifier.
 
         Returns:
             (str): resource identifierof this instance
@@ -127,7 +137,7 @@ class BaseModel:
 
     @property
     def data(self) -> Dict:
-        """Returns a dictionnary of this instance.
+        """Return a dictionnary of this instance.
 
         Returns:
             (Dict): dictionnary of this instance.
@@ -140,27 +150,25 @@ class BaseModel:
 
     @property
     def arn(self) -> str:
-        """Returns arn.
+        """Return arn.
 
         Returns:
             (str): arn of this instance
         """
         return get_arn(resource_type=self.resource_type, resource_id=self.resource_id)
 
-    def __hash__(self) -> str:
+    def __hash__(self) -> int:
         """Compute hash.
 
-        Arguments:
-
         Returns:
-           (str): a hash representation.
+           (int): a hash representation.
         """
-        return self.resource_id
+        return hash(self.resource_id)
 
     def __eq__(self, other):
         """Compare two instance of BaseModel.
 
-        Arguments:
+        Args:
             other: other instance to compare.
 
         Returns:
@@ -174,7 +182,7 @@ class BaseModel:
     def from_resource(cls, data: Dict) -> "BaseModel":
         """Instanciate a member of c4 model.
 
-        Arguments:
+        Args:
             data (Dict): dictionnary of this instance.
 
         Raises:
@@ -185,6 +193,10 @@ class BaseModel:
 
 @dataclass(eq=False)
 class ExtendedModel(BaseModel):
-    """Add extended attributes."""
+    """Add extended attributes.
+
+    Attributes:
+        extended_attributes (Dict[str, str]): an optional dict of (string, string)
+    """
 
     extended_attributes: Dict[str, str] = field(default_factory=dict)
