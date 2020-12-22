@@ -9,8 +9,8 @@ __all__ = ["C4Manager"]
 class C4Manager(UserDict):
     """C4Manager is an in memory dict of C4 Model."""
 
-    def __init__(self, dict=None):
-        super(C4Manager, self).__init__(dict=dict)
+    def __init__(self, data=None):
+        super(C4Manager, self).__init__(dict=data)
 
     def add(self, item: BaseModel):
         self.data[item.arn] = item
