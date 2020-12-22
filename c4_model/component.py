@@ -2,7 +2,6 @@ from dataclasses import dataclass
 from typing import Dict, Optional
 
 from .container import ContainerReference
-
 from .definition import ExtendedModel, Reference
 
 __all__ = ["Component", "ComponentReference"]

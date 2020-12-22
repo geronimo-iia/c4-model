@@ -1,14 +1,13 @@
 """c4 model definition."""
-from pkg_resources import get_distribution, DistributionNotFound
-from .definition import PROVIDER_CODE, NAMESPACE_C4, BaseModel
+from pkg_resources import DistributionNotFound, get_distribution
 
-from .person import Person
-from .software_system import SoftwareSystem
-from .container import Container
-from .component import Component
 from .code_element import CodeElement
+from .component import Component
+from .container import Container
+from .definition import NAMESPACE_C4, PROVIDER_CODE, BaseModel
+from .person import Person
 from .relation_ship import RelationShip
-
+from .software_system import SoftwareSystem
 
 __all__ = [
     "__version__",
