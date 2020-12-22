@@ -15,7 +15,6 @@ import sys
 
 import toml
 
-
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__name__), "..",)))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__name__), "..", "c4_model")))
