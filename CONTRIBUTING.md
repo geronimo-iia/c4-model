@@ -51,7 +51,9 @@ Poetry will manage our dependencies and create our virtual environment for us.
 To confirm these system dependencies are configured correctly:
 
 ```bash
-$ make doctor
+$ poetry --version
+
+$ poetry run python --version
 ```
 
 
