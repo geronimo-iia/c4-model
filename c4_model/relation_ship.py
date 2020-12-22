@@ -15,7 +15,15 @@ __all__ = ["RelationShip", "ModelReference"]
 
 @dataclass(eq=False)
 class RelationShip(BaseModel):
-    """RelationShip Notation."""
+    """RelationShip Notation.
+
+    Attributes:
+        origin (Reference): origin of this relationship
+        target (Reference): target of this relationship
+        description (Optional[str]): optional description
+        technology (Optional[str]): optional technology
+        extended_attributes (Dict[str, str]): optional extra attributes
+    """
 
     origin: Reference
     target: Reference
@@ -25,6 +33,14 @@ class RelationShip(BaseModel):
 
     @classmethod
     def from_resource(cls, data: Dict) -> "RelationShip":
+        """Instanciate a RelationShip.
+
+        Args:
+            data (Dict): dictionnary of this instance.
+
+        Returns:
+            (RelationShip): a RelationShip instance.
+        """
         item = RelationShip(
             name=data["name"],
             origin=ModelReference.from_resource_type(resource_type=data["origin"]["resource_type"]).create_reference(
@@ -51,10 +67,22 @@ class ModelReference(Enum):
     CODE_ELEMENT = (CodeElementReference, camel_to_snake(CodeElement.__name__))
 
     def create_reference(self, name: str):
+        """Create a reference instance for the specified name."""
         return self.value[0](name=name)
 
     @classmethod
     def from_name(cls, name: str) -> "ModelReference":
+        """Find ModelReference instance for specified name.
+
+        Args:
+            name (str): c4 model name
+
+        Returns:
+            (ModelReference): the instance
+
+        Raises:
+            (RuntimeError): if no member is associated with the specified name.
+        """
         _upper_name = name.upper()
         for model in ModelReference:
             if model.name == _upper_name:
@@ -63,6 +91,17 @@ class ModelReference(Enum):
 
     @classmethod
     def from_resource_type(cls, resource_type: str) -> "ModelReference":
+        """Find ModelReference instance for specified resource type.
+
+        Args:
+            resource_type (str): c4 resource type name
+
+        Returns:
+            (ModelReference): the instance
+
+        Raises:
+            (RuntimeError): if no member is associated with the specified resource type.
+        """
         for model in ModelReference:
             if model.value[1] == resource_type:
                 return model
