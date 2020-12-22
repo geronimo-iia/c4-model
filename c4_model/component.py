@@ -32,6 +32,14 @@ class Component(ExtendedModel):
 
     @classmethod
     def from_resource(cls, data: Dict) -> "Component":
+        """Instanciate a Component.
+
+        Args:
+            data (Dict): dictionnary of this instance.
+
+        Returns:
+            (Component): a Component instance.
+        """
         item = Component(
             name=data["name"],
             description=data.get("description"),
@@ -43,5 +51,7 @@ class Component(ExtendedModel):
 
 
 class ComponentReference(Reference):
+    """Component reference."""
+
     def __init__(self, name: str):
         super().__init__(c4_class_name=Component.__name__, name=name)
