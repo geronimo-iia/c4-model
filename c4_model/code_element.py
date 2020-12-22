@@ -9,6 +9,11 @@ __all__ = ["CodeElement", "CodeElementReference"]
 
 @dataclass(eq=False)
 class CodeElement(ExtendedModel):
+    """CodeElement Notation.
+
+    Code elements (e.g. classes, interfaces, etc) that are used to implement the component in scope.
+    """
+
     parent: Optional[ComponentReference] = None
     description: Optional[str] = None
 
@@ -18,6 +23,14 @@ class CodeElement(ExtendedModel):
 
     @classmethod
     def from_resource(cls, data: Dict) -> "CodeElement":
+        """Instanciate a CodeElement.
+
+        Args:
+            data (Dict): dictionnary of this instance.
+
+        Returns:
+            (CodeElement): a CodeElement instance.
+        """
         item = CodeElement(
             name=data["name"],
             description=data.get("description"),
@@ -29,5 +42,7 @@ class CodeElement(ExtendedModel):
 
 
 class CodeElementReference(Reference):
+    """Code element reference."""
+
     def __init__(self, name: str):
         super().__init__(c4_class_name=CodeElement.__name__, name=name)
