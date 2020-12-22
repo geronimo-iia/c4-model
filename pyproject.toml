@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "c4_model"
-version = "0.0.0"
+version = "0.0.1"
 description = "C4 model utilities"
 license = "MIT"
 authors = ["Jerome Guibert <jguibert@gmail.com>"]
