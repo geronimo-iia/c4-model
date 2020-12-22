@@ -25,10 +25,11 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.8"
 
+
+
 [tool.poetry.dev-dependencies]
-black = "=19.3b0" # The uncompromising code formatter.
-isort = "=4.3.4" #A Python utility / library to sort Python imports.
-seed-isort-config = "^1.9"
+black = "^20.8b1" # The uncompromising code formatter.
+isort = "^5.6.4" #A Python utility / library to sort Python imports.
 flake8 = "^3.7.9" # the modular source code checker: pep8, pyflakes and co
 flake8-2020 = "1.5.0" # flake8 plugin which checks for misuse of `sys.version` or `sys.version_info`
 flake8-black = "^0.1.1" # flake8 plugin to call black as a code style validator
@@ -52,11 +53,7 @@ mypy = "*"
 # Unit Testing
 pytest = "^6" # pytest: simple powerful testing with Python
 pytest-cov = "^2" # Pytest plugin for measuring coverage.
-pytest-describe = "*"
-#pytest-expecter = "*"
-pytest-random = "*"
 pytest-mock = "^3"
-pytest-curio = "^1.0.1"
 coverage = {version = "^5", extras = ["toml"]} # Code coverage measurement for Python
 xdoctest = "^0.15.0" # A rewrite of the builtin doctest module
 
@@ -66,6 +63,7 @@ sphinx_rtd_theme = "^0.4.3"
 m2r = "^0.2.1"  # M2R converts a markdown file including reStructuredText (rst)
 autodocsumm = "*"
 
+
 [tool.black]
 # see https://black.readthedocs.io/en/stable/
 target-version = ["py38"]
@@ -74,15 +72,16 @@ line_length = 120
 
 [tool.isort]
 # see https://timothycrosley.github.io/isort/
-not_skip = "__init__.py"
-multi_line_output = 3
-known_standard_library = "dataclasses,typing_extensions"
-known_first_party = "c4_model"
-known_third_party = ["pkg_resources", "toml"]
 combine_as_imports = true
+multi_line_output = 3
 include_trailing_comma = true
-line_length = 120
 use_parentheses = true
+force_grid_wrap = 0
+ensure_newline_before_comments = true
+line_length = 120
+
+[tool.coverage.paths]
+source = ["c4_model"]
 
 [tool.coverage.run]
 # see https://coverage.readthedocs.io/en/coverage-5.0.3/config.html
@@ -95,6 +94,11 @@ omit = ["tests/*", ".venv/*", "*/__main__.py"]
 exclude_lines =[
     "pragma: no cover",
     "raise NotImplementedError"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-markers --pdbcls=tests:Debugger -r sxX --cov=c4_model --cov-report=html --cov-report=term-missing:skip-covered"
+cache_dir = ".cache"
 
 
 [build-system]
