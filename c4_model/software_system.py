@@ -21,6 +21,14 @@ class SoftwareSystem(ExtendedModel):
 
     @classmethod
     def from_resource(cls, data: Dict) -> "SoftwareSystem":
+        """Instanciate a SoftwareSystem.
+
+        Args:
+            data (Dict): dictionnary of this instance.
+
+        Returns:
+            (SoftwareSystem): a SoftwareSystem instance.
+        """
         return SoftwareSystem(
             name=data["name"],
             description=data.get("description"),
@@ -29,5 +37,7 @@ class SoftwareSystem(ExtendedModel):
 
 
 class SoftwareSystemReference(Reference):
+    """SoftwareSystem reference."""
+
     def __init__(self, name: str):
         super().__init__(c4_class_name=SoftwareSystem.__name__, name=name)
