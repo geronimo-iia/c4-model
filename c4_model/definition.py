@@ -73,7 +73,7 @@ class Reference:
         Returns:
             (str): arn of this instance
         """
-        return get_arn(resource_type=self.resource_type, resource_id=self.resource_id)
+        return get_arn(resource_type=self.resource_type, resource_id=self.resource_id)  # type: ignore[arg-type]
 
     @property
     def data(self) -> Dict:
