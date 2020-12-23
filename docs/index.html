@@ -199,6 +199,38 @@
 </pre></div>
 </div>
 <p>See <a class="reference external" href="https://geronimo-iia.github.io/c4-model">documentation</a> for more detail on each resources.</p>
+<p>To create a <code class="docutils literal notranslate"><span class="pre">Person</span></code>, you can do:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>from c4_model import Person
+p = Person(name=&quot;p1&quot;)
+p.description = &quot;big boss&quot;
+p.extended_attributes[&quot;qualifier&quot;] = &quot;vip&quot;
+
+print(p.arn)
+
+&gt;&gt;&gt; &quot;arn:c4:person:7fd91543-6b1f-3a69-91b9-9ae50369fab3&quot;
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>from c4_model import Person
+p = Person(name=&quot;p1&quot;, description=&quot;big boss&quot;, extended_attributes={&quot;qualifier&quot;: &quot;vip&quot;})
+</pre></div>
+</div>
+<p>To deal with dict:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>from c4_model import Person
+p = Person(name=&quot;p1&quot;, description=&quot;big boss&quot;, extended_attributes={&quot;qualifier&quot;: &quot;vip&quot;})
+
+p_as_dict = p.data
+print(p_as_dict)
+
+&gt;&gt;&gt; {&#39;name&#39;: &#39;p1&#39;, &#39;extended_attributes&#39;: {&#39;qualifier&#39;: &#39;vip&#39;}, &#39;description&#39;: &#39;big boss&#39;}
+
+# load a resource
+p2 = Person.from_resource(data=p_as_dict)
+
+# equality is here
+assert p == p2
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="contents">

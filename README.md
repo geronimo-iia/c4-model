@@ -57,3 +57,44 @@ $ python
 ```
 
 See [documentation](https://geronimo-iia.github.io/c4-model) for more detail on each resources.
+
+To create a `Person`, you can do:
+
+```
+from c4_model import Person
+p = Person(name="p1")
+p.description = "big boss"
+p.extended_attributes["qualifier"] = "vip"
+
+print(p.arn)
+
+>>> "arn:c4:person:7fd91543-6b1f-3a69-91b9-9ae50369fab3"
+```
+
+or 
+
+```
+from c4_model import Person
+p = Person(name="p1", description="big boss", extended_attributes={"qualifier": "vip"})
+```
+
+To deal with dict:
+
+```
+from c4_model import Person
+p = Person(name="p1", description="big boss", extended_attributes={"qualifier": "vip"})
+
+p_as_dict = p.data
+print(p_as_dict)
+
+>>> {'name': 'p1', 'extended_attributes': {'qualifier': 'vip'}, 'description': 'big boss'}
+
+# load a resource
+p2 = Person.from_resource(data=p_as_dict)
+
+# equality is here
+assert p == p2
+```
+
+
+
