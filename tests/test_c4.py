@@ -4,6 +4,7 @@ from c4_model import *
 from c4_model.code_element import CodeElementReference
 from c4_model.component import ComponentReference
 from c4_model.container import ContainerReference
+from c4_model.definition import Reference
 from c4_model.person import PersonReference
 from c4_model.relation_ship import ModelReference
 from c4_model.software_system import SoftwareSystemReference
@@ -94,7 +95,6 @@ class TestC4(unittest.TestCase):
         self.assertEqual(a, b)
         self.assertEqual("p1", b.name)
         self.assertEqual("test", b.description)
-
 
     def test_container(self):
         p = Container(name="s1", description="amazing container", technology="docker")
@@ -231,7 +231,6 @@ class TestC4(unittest.TestCase):
         b = Component.from_resource(data=a.data)
         self.assertEqual(ContainerReference(name="soft1"), b.parent)
 
-
     def test_code_element(self):
         p = CodeElement(name="s1", description="amazing code element")
         self.assertEqual("s1", p.name)
@@ -294,7 +293,6 @@ class TestC4(unittest.TestCase):
             p.data,
         )
 
-
     def test_code_element_from_resource(self):
         a = CodeElement(name="p1", description="test")
         b = CodeElement.from_resource(data=a.data)
@@ -306,7 +304,6 @@ class TestC4(unittest.TestCase):
         a.attach("soft1")
         b = CodeElement.from_resource(data=a.data)
         self.assertEqual(ComponentReference(name="soft1"), b.parent)
-
 
     def test_relation_ship(self):
         r = RelationShip(
@@ -338,6 +335,18 @@ class TestC4(unittest.TestCase):
             r.data,
         )
 
+    def test_relation_ship_from_resource(self):
+        a = RelationShip(
+            name="test", origin=ContainerReference(name="container"), target=ContainerReference(name="target_container")
+        )
+        b = RelationShip.from_resource(data=a.data)
+        self.assertIsNotNone(b)
+        self.assertEqual(a, b)
+        self.assertEqual("test", b.name)
+        self.assertIsNone(b.description)
+        self.assertEqual(ContainerReference(name="container"), b.origin)
+        self.assertEqual(ContainerReference(name="target_container"), b.target)
+
     def test_model_reference(self):
         self.assertEqual(ModelReference.PERSON.create_reference("aname"), PersonReference("aname"))
 
@@ -353,9 +362,41 @@ class TestC4(unittest.TestCase):
         self.assertEqual(ModelReference.COMPONENT, ModelReference.from_name("component"))
         self.assertEqual(ModelReference.CODE_ELEMENT, ModelReference.from_name("code_element"))
 
+        self.assertRaises(RuntimeError, ModelReference.from_name, "dontexists")
+
     def test_model_reference_lookup_by_resource_type(self):
         self.assertEqual(ModelReference.PERSON, ModelReference.from_resource_type("person"))
         self.assertEqual(ModelReference.SOFTWARE_SYSTEM, ModelReference.from_resource_type("software_system"))
         self.assertEqual(ModelReference.CONTAINER, ModelReference.from_resource_type("container"))
         self.assertEqual(ModelReference.COMPONENT, ModelReference.from_resource_type("component"))
         self.assertEqual(ModelReference.CODE_ELEMENT, ModelReference.from_resource_type("code_element"))
+
+        self.assertRaises(RuntimeError, ModelReference.from_resource_type, "dontexists")
+
+    def test_reference_post_init(self):
+        self.assertRaises(RuntimeError, Reference, name="ba")
+
+    def test_reference_eq(self):
+        self.assertEqual(
+            Reference(name="a", c4_class_name=Person.__name__), Reference(name="a", c4_class_name=Person.__name__)
+        )
+        self.assertNotEqual(
+            Reference(name="b", c4_class_name=Person.__name__), Reference(name="a", c4_class_name=Person.__name__)
+        )
+        self.assertNotEqual(Reference(name="b", c4_class_name=Person.__name__), None)
+        self.assertNotEqual(Reference(name="b", c4_class_name=Person.__name__), {})
+
+    def test_reference_hash(self):
+        self.assertIsInstance(hash(Reference(name="a", c4_class_name=Person.__name__)), int)
+
+    def test_person_hash(self):
+        self.assertIsInstance(hash(Person(name="p1")), int)
+
+    def test_person_eq(self):
+        self.assertEqual(Person(name="p1"), Person(name="p1"))
+        self.assertNotEqual(Person(name="p1"), Person(name="p2"))
+        self.assertNotEqual(Person(name="p1"), None)
+        self.assertNotEqual(Person(name="p1"), {})
+
+    def test_base_model_from_resource(self):
+        self.assertRaises(RuntimeError, BaseModel.from_resource, {})

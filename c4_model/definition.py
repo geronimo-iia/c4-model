@@ -59,12 +59,17 @@ class Reference:
 
         If c4_class_name is present, compute resource_type and resource_id memeber.
 
-        Arguments:
+        Args:
             c4_class_name (str): optional c4_class_name
+
+        Raises:
+            (RuntimeError): if resource_type or resource_id is none.
         """
         if c4_class_name:
             self.resource_type = camel_to_snake(c4_class_name)
             self.resource_id = get_resource_id(class_name=c4_class_name, name=self.name)
+        if not self.resource_type or not self.resource_id:
+            raise RuntimeError("Missing c4_class_name")
 
     @property
     def arn(self) -> str:
@@ -96,6 +101,14 @@ class Reference:
         if other:
             return self.resource_id == other.resource_id if hasattr(other, "resource_id") else False
         return False
+
+    def __hash__(self) -> int:
+        """Compute hash.
+
+        Returns:
+           (int): a hash representation.
+        """
+        return hash(self.resource_id)
 
 
 @dataclass
