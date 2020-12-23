@@ -34,4 +34,6 @@ jobs:
       run: make install 
       # poetry install --no-interaction
     - name: Check Python package
-      run: make check test
+      run: make check
+    - name: Test Python package
+      run: make test
