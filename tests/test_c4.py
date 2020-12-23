@@ -400,3 +400,20 @@ class TestC4(unittest.TestCase):
 
     def test_base_model_from_resource(self):
         self.assertRaises(RuntimeError, BaseModel.from_resource, {})
+
+    def test_base_model_data(self):
+        p = CodeElement(name="s1", description="amazing code element")
+        p.attach("soft1")
+        self.assertEqual(
+            {
+                'description': 'amazing code element',
+                'extended_attributes': {},
+                'name': 's1',
+                'parent': {
+                    'name': 'soft1',
+                    'resource_id': '3ca2a13b-43fa-3ecd-a872-5657f036d004',
+                    'resource_type': 'component',
+                },
+            },
+            p.data,
+        )

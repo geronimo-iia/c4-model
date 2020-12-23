@@ -155,11 +155,7 @@ class BaseModel:
         Returns:
             (Dict): dictionnary of this instance.
         """
-        d = asdict(self)
-        for (k, v) in d.items():
-            if isinstance(v, Reference) or isinstance(v, BaseModel):
-                d[k] = v.data
-        return d
+        return asdict(self)
 
     @property
     def arn(self) -> str:
