@@ -53,7 +53,7 @@ check: install   ## Run linters and static analysis
 	poetry run isort $(PACKAGES)
 	poetry run black $(PACKAGES)
 	poetry run flakehell lint $(PACKAGE)
-	poetry run mypy --show-error-codes $(PACKAGE)
+	poetry run mypy --show-error-codes --config-file pyproject.toml $(PACKAGE)
 
 # TESTS #######################################################################
 
