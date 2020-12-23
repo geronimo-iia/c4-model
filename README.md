@@ -1,4 +1,4 @@
-# c4 model (Work In Progress)
+# c4 model
 
 
 [![Unix Build Status](https://img.shields.io/travis/geronimo-iia/c4-model/master.svg?label=unix)](https://travis-ci.com/geronimo-iia/c4-model)

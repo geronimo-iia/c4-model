@@ -1,6 +1,6 @@
 # Change Log
 
-## 1.0.0 (coming soon)
+## 1.0.0
 
 - Project structure:
     - based on [geronimo-iia/template-python](https://github.com/geronimo-iia/template-python)
