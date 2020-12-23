@@ -10,7 +10,8 @@ Icon*
 # Temporary virtual environment files
 /.cache/
 /.venv/
-
+/.mypy_cache/
+/.pytest_cache/
 # Temporary server files
 .env
 *.pid

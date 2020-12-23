@@ -94,7 +94,6 @@ exclude_lines =[
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "--strict-markers --pdbcls=tests:Debugger -r sxX --cov=c4_model --cov-report=html --cov-report=term-missing:skip-covered"
-cache_dir = ".cache"
 
 [tool.flakehell]
 exclude = ["README.md"]
@@ -126,7 +125,6 @@ pylint = ["+*"]
 
 
 [mypy]
-cache_dir = ".cache/mypy/"
 check_untyped_defs = true
 ignore_errors = false
 ignore_missing_imports = true

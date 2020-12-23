@@ -6,7 +6,7 @@ MODULES := $(wildcard $(PACKAGE)/*.py)
 
 # const
 .DEFAULT_GOAL := help
-FAILURES := .cache/v/cache/lastfailed
+FAILURES := .pytest_cache/v/cache/lastfailed
 DIST_FILES := dist/*.tar.gz dist/*.whl
 SPHINX_BUILD_DIR = .cache/sphinx
 
@@ -100,7 +100,7 @@ docs:  ## Build and publish sit documentation.
 
 .PHONY: clean
 clean:  ## Delete all generated and temporary files
-	@rm -rf *.spec dist build .eggs *.egg-info .install
-	@rm -rf .cache .pytest .coverage htmlcov
+	@rm -rf *.spec dist build .eggs *.egg-info .install 
+	@rm -rf .cache .coverage htmlcov .mypy_cache .pytest_cache
 	@find $(PACKAGES) -name '__pycache__' -delete
 	@rm -rf *.egg-info
