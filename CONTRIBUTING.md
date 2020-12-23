@@ -98,7 +98,7 @@ $ make docs
 $ make build
 ```
 
-#### Ontain help
+#### Obtain help
 
 For help:
 
