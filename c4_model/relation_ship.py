@@ -18,6 +18,7 @@ class RelationShip(BaseModel):
     """RelationShip Notation.
 
     Attributes:
+        name (str): model name.
         origin (Reference): origin of this relationship
         target (Reference): target of this relationship
         description (Optional[str]): optional description

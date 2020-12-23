@@ -15,6 +15,12 @@ class SoftwareSystem(ExtendedModel):
     whether they are human or not.
     This includes the software system you are modelling, and the other software systems upon which your software system
     depends (or vice versa).
+
+    Attributes:
+        name (str): model name.
+        extended_attributes (Dict[str, str]): an optional dict of (string, string).
+        description (Optional[str]): optional description.
+
     """
 
     description: Optional[str] = None

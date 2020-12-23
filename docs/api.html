@@ -211,6 +211,50 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">c4_model.definition.ExtendedModel</span></code></p>
 <p>CodeElement Notation.</p>
 <p>Code elements (e.g. classes, interfaces, etc) that are used to implement the component in scope.</p>
+<dl class="attribute">
+<dt id="c4_model.CodeElement.name">
+<code class="sig-name descname">name</code><a class="headerlink" href="#c4_model.CodeElement.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>model name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.CodeElement.extended_attributes">
+<code class="sig-name descname">extended_attributes</code><a class="headerlink" href="#c4_model.CodeElement.extended_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>an optional dict of (string, string).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Dict[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.CodeElement.description">
+<code class="sig-name descname">description</code><a class="headerlink" href="#c4_model.CodeElement.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>optional description.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Optional[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.CodeElement.parent">
+<code class="sig-name descname">parent</code><a class="headerlink" href="#c4_model.CodeElement.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>optional Component parent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Optional[ComponentReference]</p>
+</dd>
+</dl>
+</dd></dl>
+
 <p><strong>Methods:</strong></p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -242,13 +286,13 @@
 </tbody>
 </table>
 <dl class="attribute">
-<dt id="c4_model.CodeElement.parent">
-<code class="sig-name descname">parent</code><em class="property">: Optional[c4_model.component.ComponentReference]</em><em class="property"> = None</em><a class="headerlink" href="#c4_model.CodeElement.parent" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="sig-name descname">parent</code><em class="property">: Optional[c4_model.component.ComponentReference]</em><em class="property"> = None</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="c4_model.CodeElement.description">
-<code class="sig-name descname">description</code><em class="property">: Optional[str]</em><em class="property"> = None</em><a class="headerlink" href="#c4_model.CodeElement.description" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="sig-name descname">description</code><em class="property">: Optional[str]</em><em class="property"> = None</em></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -290,6 +334,50 @@ Aspects such as how those components are packaged (e.g. one component vs many co
 DLL, shared library, etc) is a separate and orthogonal concern.</p>
 <p>An important point to note here is that all components inside a container typically execute
 in the same process space.</p>
+<dl class="attribute">
+<dt id="c4_model.Component.name">
+<code class="sig-name descname">name</code><a class="headerlink" href="#c4_model.Component.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>model name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.Component.extended_attributes">
+<code class="sig-name descname">extended_attributes</code><a class="headerlink" href="#c4_model.Component.extended_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>an optional dict of (string, string).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Dict[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.Component.description">
+<code class="sig-name descname">description</code><a class="headerlink" href="#c4_model.Component.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>optional description.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Optional[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.Component.parent">
+<code class="sig-name descname">parent</code><a class="headerlink" href="#c4_model.Component.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>optional Container parent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Optional[ContainerReference]</p>
+</dd>
+</dl>
+</dd></dl>
+
 <p><strong>Methods:</strong></p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -321,13 +409,13 @@ in the same process space.</p>
 </tbody>
 </table>
 <dl class="attribute">
-<dt id="c4_model.Component.parent">
-<code class="sig-name descname">parent</code><em class="property">: Optional[c4_model.container.ContainerReference]</em><em class="property"> = None</em><a class="headerlink" href="#c4_model.Component.parent" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="sig-name descname">parent</code><em class="property">: Optional[c4_model.container.ContainerReference]</em><em class="property"> = None</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="c4_model.Component.description">
-<code class="sig-name descname">description</code><em class="property">: Optional[str]</em><em class="property"> = None</em><a class="headerlink" href="#c4_model.Component.description" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="sig-name descname">description</code><em class="property">: Optional[str]</em><em class="property"> = None</em></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -366,6 +454,61 @@ A container is something that needs to be running in order for the overall softw
 And each container is a separately deployable/runnable thing or runtime environment,
 typically (but not always) running in its own process space.
 Because of this, communication between containers typically takes the form of an inter-process communication.</p>
+<dl class="attribute">
+<dt id="c4_model.Container.name">
+<code class="sig-name descname">name</code><a class="headerlink" href="#c4_model.Container.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>model name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.Container.extended_attributes">
+<code class="sig-name descname">extended_attributes</code><a class="headerlink" href="#c4_model.Container.extended_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>an optional dict of (string, string).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Dict[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.Container.description">
+<code class="sig-name descname">description</code><a class="headerlink" href="#c4_model.Container.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>optional description.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Optional[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.Container.technology">
+<code class="sig-name descname">technology</code><a class="headerlink" href="#c4_model.Container.technology" title="Permalink to this definition">¶</a></dt>
+<dd><p>optional technology.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Optional[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.Container.parent">
+<code class="sig-name descname">parent</code><a class="headerlink" href="#c4_model.Container.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>optional SoftwareSystem parent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Optional[SoftwareSystemReference]</p>
+</dd>
+</dl>
+</dd></dl>
+
 <p><strong>Methods:</strong></p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -400,18 +543,18 @@ Because of this, communication between containers typically takes the form of an
 </tbody>
 </table>
 <dl class="attribute">
-<dt id="c4_model.Container.parent">
-<code class="sig-name descname">parent</code><em class="property">: Optional[c4_model.software_system.SoftwareSystemReference]</em><em class="property"> = None</em><a class="headerlink" href="#c4_model.Container.parent" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="sig-name descname">parent</code><em class="property">: Optional[c4_model.software_system.SoftwareSystemReference]</em><em class="property"> = None</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="c4_model.Container.technology">
-<code class="sig-name descname">technology</code><em class="property">: Optional[str]</em><em class="property"> = None</em><a class="headerlink" href="#c4_model.Container.technology" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="sig-name descname">technology</code><em class="property">: Optional[str]</em><em class="property"> = None</em></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="c4_model.Container.description">
-<code class="sig-name descname">description</code><em class="property">: Optional[str]</em><em class="property"> = None</em><a class="headerlink" href="#c4_model.Container.description" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="sig-name descname">description</code><em class="property">: Optional[str]</em><em class="property"> = None</em></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -761,6 +904,39 @@ Because of this, communication between containers typically takes the form of an
 <p>However you think about your users (as actors, roles, personas, etc),
 people are the various human users of your software system.
 A person represents one of the human users of your software system (e.g. actors, roles, personas, etc).</p>
+<dl class="attribute">
+<dt id="c4_model.Person.name">
+<code class="sig-name descname">name</code><a class="headerlink" href="#c4_model.Person.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>model name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.Person.extended_attributes">
+<code class="sig-name descname">extended_attributes</code><a class="headerlink" href="#c4_model.Person.extended_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>an optional dict of (string, string).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Dict[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.Person.description">
+<code class="sig-name descname">description</code><a class="headerlink" href="#c4_model.Person.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>optional description.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Optional[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
 <p><strong>Attributes:</strong></p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -786,8 +962,8 @@ A person represents one of the human users of your software system (e.g. actors,
 </tbody>
 </table>
 <dl class="attribute">
-<dt id="c4_model.Person.description">
-<code class="sig-name descname">description</code><em class="property">: Optional[str]</em><em class="property"> = None</em><a class="headerlink" href="#c4_model.Person.description" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="sig-name descname">description</code><em class="property">: Optional[str]</em><em class="property"> = None</em></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -814,6 +990,17 @@ A person represents one of the human users of your software system (e.g. actors,
 <em class="property">class </em><code class="sig-prename descclassname">c4_model.</code><code class="sig-name descname">RelationShip</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">origin: c4_model.definition.Reference</em>, <em class="sig-param">target: c4_model.definition.Reference</em>, <em class="sig-param">description: Optional[str] = None</em>, <em class="sig-param">technology: Optional[str] = None</em>, <em class="sig-param">extended_attributes: Dict[str</em>, <em class="sig-param">str] = &lt;factory&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/relation_ship.html#RelationShip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.RelationShip" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">c4_model.definition.BaseModel</span></code></p>
 <p>RelationShip Notation.</p>
+<dl class="attribute">
+<dt id="c4_model.RelationShip.name">
+<code class="sig-name descname">name</code><a class="headerlink" href="#c4_model.RelationShip.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>model name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="c4_model.RelationShip.origin">
 <code class="sig-name descname">origin</code><a class="headerlink" href="#c4_model.RelationShip.origin" title="Permalink to this definition">¶</a></dt>
@@ -958,6 +1145,39 @@ A person represents one of the human users of your software system (e.g. actors,
 whether they are human or not.
 This includes the software system you are modelling, and the other software systems upon which your software system
 depends (or vice versa).</p>
+<dl class="attribute">
+<dt id="c4_model.SoftwareSystem.name">
+<code class="sig-name descname">name</code><a class="headerlink" href="#c4_model.SoftwareSystem.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>model name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.SoftwareSystem.extended_attributes">
+<code class="sig-name descname">extended_attributes</code><a class="headerlink" href="#c4_model.SoftwareSystem.extended_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>an optional dict of (string, string).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Dict[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.SoftwareSystem.description">
+<code class="sig-name descname">description</code><a class="headerlink" href="#c4_model.SoftwareSystem.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>optional description.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Optional[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
 <p><strong>Attributes:</strong></p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -983,8 +1203,8 @@ depends (or vice versa).</p>
 </tbody>
 </table>
 <dl class="attribute">
-<dt id="c4_model.SoftwareSystem.description">
-<code class="sig-name descname">description</code><em class="property">: Optional[str]</em><em class="property"> = None</em><a class="headerlink" href="#c4_model.SoftwareSystem.description" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="sig-name descname">description</code><em class="property">: Optional[str]</em><em class="property"> = None</em></dt>
 <dd></dd></dl>
 
 <dl class="method">

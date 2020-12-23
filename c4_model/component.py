@@ -21,6 +21,12 @@ class Component(ExtendedModel):
 
     An important point to note here is that all components inside a container typically execute
     in the same process space.
+
+    Attributes:
+        name (str): model name.
+        extended_attributes (Dict[str, str]): an optional dict of (string, string).
+        description (Optional[str]): optional description.
+        parent (Optional[ContainerReference]): optional Container parent.
     """
 
     parent: Optional[ContainerReference] = None

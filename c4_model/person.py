@@ -14,6 +14,11 @@ class Person(ExtendedModel):
     However you think about your users (as actors, roles, personas, etc),
     people are the various human users of your software system.
     A person represents one of the human users of your software system (e.g. actors, roles, personas, etc).
+
+    Attributes:
+        name (str): model name.
+        extended_attributes (Dict[str, str]): an optional dict of (string, string).
+        description (Optional[str]): optional description.
     """
 
     description: Optional[str] = None

@@ -12,6 +12,12 @@ class CodeElement(ExtendedModel):
     """CodeElement Notation.
 
     Code elements (e.g. classes, interfaces, etc) that are used to implement the component in scope.
+
+    Attributes:
+        name (str): model name.
+        extended_attributes (Dict[str, str]): an optional dict of (string, string).
+        description (Optional[str]): optional description.
+        parent (Optional[ComponentReference]): optional Component parent.
     """
 
     parent: Optional[ComponentReference] = None

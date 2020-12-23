@@ -18,6 +18,14 @@ class Container(ExtendedModel):
     And each container is a separately deployable/runnable thing or runtime environment,
     typically (but not always) running in its own process space.
     Because of this, communication between containers typically takes the form of an inter-process communication.
+
+    Attributes:
+        name (str): model name.
+        extended_attributes (Dict[str, str]): an optional dict of (string, string).
+        description (Optional[str]): optional description.
+        technology (Optional[str]): optional technology.
+        parent (Optional[SoftwareSystemReference]): optional SoftwareSystem parent.
+
     """
 
     parent: Optional[SoftwareSystemReference] = None

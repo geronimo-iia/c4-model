@@ -159,8 +159,25 @@
 <p>Versions following <a class="reference external" href="https://semver.org/">Semantic Versioning</a></p>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>C4 Metamodel implementation.</p>
-<p>see <a class="reference external" href="https://c4model.com/#Notation">https://c4model.com/#Notation</a></p>
+<p>This module provide a simple C4 Metamodel implementation.</p>
+<p>See <a class="reference external" href="https://c4model.com/#Notation">c4model</a>.</p>
+<p>This project expose c4 resource:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Person</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SoftwareSystem</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Container</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Component</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CodeElement</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RelationShip</span></code></p></li>
+</ul>
+<p>Each of them have:</p>
+<ul class="simple">
+<li><p>an unique <code class="docutils literal notranslate"><span class="pre">arn</span></code> based on their type and name</p></li>
+<li><p>an extended attributes (dict)</p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">data</span></code> property to represent them as a dict, json etc…</p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">from_resource</span></code> method to instanciate a resource from a dict</p></li>
+</ul>
+<p>Another class <code class="docutils literal notranslate"><span class="pre">C4Manager</span></code>, act as a container of c4 resource, with <code class="docutils literal notranslate"><span class="pre">lookup</span></code> facilities on resource’s arn.</p>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
@@ -181,7 +198,7 @@
 &gt;&gt;&gt; c4_model.__version__
 </pre></div>
 </div>
-<p>See <a class="reference external" href="https://geronimo-iia.github.io/c4-model">documentation</a>.</p>
+<p>See <a class="reference external" href="https://geronimo-iia.github.io/c4-model">documentation</a> for more detail on each resources.</p>
 </div>
 </div>
 <div class="section" id="contents">

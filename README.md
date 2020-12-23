@@ -10,9 +10,27 @@ Versions following [Semantic Versioning](https://semver.org/)
 
 ## Overview
 
-C4 Metamodel implementation.
+This module provide a simple C4 Metamodel implementation.
 
-see https://c4model.com/#Notation
+See [c4model](https://c4model.com/#Notation).
+
+This project expose c4 resource:
+- `Person`
+- `SoftwareSystem`
+- `Container`
+- `Component`
+- `CodeElement`
+- `RelationShip`
+
+Each of them have:
+- an unique `arn` based on their type and name
+- an extended attributes (dict)
+- a `data` property to represent them as a dict, json etc...
+- a `from_resource` method to instanciate a resource from a dict
+
+
+Another class `C4Manager`, act as a container of c4 resource, with `lookup` facilities on resource's arn.
+
 
 ## Installation
 
@@ -38,4 +56,4 @@ $ python
 >>> c4_model.__version__
 ```
 
-See [documentation](https://geronimo-iia.github.io/c4-model).
+See [documentation](https://geronimo-iia.github.io/c4-model) for more detail on each resources.
