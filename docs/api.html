@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Reference &mdash; c4_model 0.0.1 documentation</title>
+  <title>API Reference &mdash; c4_model 1.0.0 documentation</title>
   
 
   
@@ -199,6 +199,9 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#c4_model.RelationShip" title="c4_model.RelationShip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RelationShip</span></code></a>(name, origin, target[, …])</p></td>
 <td><p>RelationShip Notation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.C4Manager" title="c4_model.C4Manager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">C4Manager</span></code></a>([data])</p></td>
+<td><p>C4Manager is an in memory dict of C4 Model.</p></td>
 </tr>
 </tbody>
 </table>
@@ -651,6 +654,102 @@ Because of this, communication between containers typically takes the form of an
 <dt>
 <code class="sig-name descname">extended_attributes</code><em class="property">: Dict[str, str]</em><em class="property"> = None</em></dt>
 <dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c4_model.C4Manager">
+<em class="property">class </em><code class="sig-prename descclassname">c4_model.</code><code class="sig-name descname">C4Manager</code><span class="sig-paren">(</span><em class="sig-param">data: Iterable[c4_model.definition.BaseModel] = None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/manager.html#C4Manager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.C4Manager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">collections.UserDict</span></code></p>
+<p>C4Manager is an in memory dict of C4 Model.</p>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.C4Manager.add" title="c4_model.C4Manager.add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add</span></code></a>(item)</p></td>
+<td><p>Add a model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup" title="c4_model.C4Manager.lookup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup</span></code></a>(arn_query)</p></td>
+<td><p>Lookup arn key for specified query.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_code_element" title="c4_model.C4Manager.lookup_code_element"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_code_element</span></code></a>()</p></td>
+<td><p>Lookup for all code element instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_component" title="c4_model.C4Manager.lookup_component"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_component</span></code></a>()</p></td>
+<td><p>Lookup for all component instance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_container" title="c4_model.C4Manager.lookup_container"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_container</span></code></a>()</p></td>
+<td><p>Lookup for all container instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_person" title="c4_model.C4Manager.lookup_person"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_person</span></code></a>()</p></td>
+<td><p>Lookup for all person instance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_relation_ship" title="c4_model.C4Manager.lookup_relation_ship"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_relation_ship</span></code></a>()</p></td>
+<td><p>Lookup for all relation ship instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_software_system" title="c4_model.C4Manager.lookup_software_system"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_software_system</span></code></a>()</p></td>
+<td><p>Lookup for all software system instance.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="c4_model.C4Manager.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">item: c4_model.definition.BaseModel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/manager.html#C4Manager.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.C4Manager.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a model.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="c4_model.C4Manager.lookup">
+<code class="sig-name descname">lookup</code><span class="sig-paren">(</span><em class="sig-param">arn_query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/manager.html#C4Manager.lookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.C4Manager.lookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lookup arn key for specified query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>arn_query</strong> (<em>str</em>) – an arn model to lookup for</p>
+</dd>
+<dt class="field-even">Yields</dt>
+<dd class="field-even"><p><em>(str)</em> – arn model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="c4_model.C4Manager.lookup_person">
+<code class="sig-name descname">lookup_person</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/manager.html#C4Manager.lookup_person"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.C4Manager.lookup_person" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lookup for all person instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="c4_model.C4Manager.lookup_software_system">
+<code class="sig-name descname">lookup_software_system</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/manager.html#C4Manager.lookup_software_system"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.C4Manager.lookup_software_system" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lookup for all software system instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="c4_model.C4Manager.lookup_container">
+<code class="sig-name descname">lookup_container</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/manager.html#C4Manager.lookup_container"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.C4Manager.lookup_container" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lookup for all container instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="c4_model.C4Manager.lookup_component">
+<code class="sig-name descname">lookup_component</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/manager.html#C4Manager.lookup_component"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.C4Manager.lookup_component" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lookup for all component instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="c4_model.C4Manager.lookup_code_element">
+<code class="sig-name descname">lookup_code_element</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/manager.html#C4Manager.lookup_code_element"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.C4Manager.lookup_code_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lookup for all code element instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="c4_model.C4Manager.lookup_relation_ship">
+<code class="sig-name descname">lookup_relation_ship</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/manager.html#C4Manager.lookup_relation_ship"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.C4Manager.lookup_relation_ship" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lookup for all relation ship instance.</p>
+</dd></dl>
 
 </dd></dl>
 
