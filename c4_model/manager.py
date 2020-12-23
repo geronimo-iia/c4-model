@@ -1,5 +1,6 @@
 import re
 from collections import UserDict
+from typing import Iterable
 
 from .definition import BaseModel
 
@@ -9,8 +10,11 @@ __all__ = ["C4Manager"]
 class C4Manager(UserDict):
     """C4Manager is an in memory dict of C4 Model."""
 
-    def __init__(self, data=None):
-        super(C4Manager, self).__init__(dict=data)
+    def __init__(self, data: Iterable[BaseModel] = None):
+        super(C4Manager, self).__init__()
+        if data:
+            for item in data:
+                self.add(item)
 
     def add(self, item: BaseModel):
         """Add a model."""

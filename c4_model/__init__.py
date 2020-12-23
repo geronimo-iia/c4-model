@@ -5,10 +5,10 @@ from .code_element import CodeElement
 from .component import Component
 from .container import Container
 from .definition import NAMESPACE_C4, PROVIDER_CODE, BaseModel, ExtendedModel
+from .manager import C4Manager
 from .person import Person
 from .relation_ship import RelationShip
 from .software_system import SoftwareSystem
-from .manager import C4Manager
 
 __all__ = [
     "__version__",
@@ -22,7 +22,7 @@ __all__ = [
     "Component",
     "CodeElement",
     "RelationShip",
-    "C4Manager"
+    "C4Manager",
 ]
 
 try:
