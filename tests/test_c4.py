@@ -1,5 +1,4 @@
 import unittest
-from uuid import UUID
 
 from c4_model import *
 from c4_model.code_element import CodeElementReference
@@ -16,7 +15,7 @@ class TestC4(unittest.TestCase):
         self.assertEqual("p1", p.name)
         self.assertIsNone(p.description)
         self.assertEqual("c4", p.provider)
-        self.assertEqual(UUID("7fd91543-6b1f-3a69-91b9-9ae50369fab3"), p.resource_id)
+        self.assertEqual("7fd91543-6b1f-3a69-91b9-9ae50369fab3", p.resource_id)
         self.assertEqual("person", p.resource_type)
         self.assertEqual("arn:c4:person:7fd91543-6b1f-3a69-91b9-9ae50369fab3", p.arn)
         p.description = "test"
@@ -35,7 +34,7 @@ class TestC4(unittest.TestCase):
         self.assertEqual("p1", ref.name)
         self.assertEqual("arn:c4:person:7fd91543-6b1f-3a69-91b9-9ae50369fab3", ref.arn)
         self.assertEqual(
-            {"name": "p1", "resource_id": UUID("7fd91543-6b1f-3a69-91b9-9ae50369fab3"), "resource_type": "person"},
+            {"name": "p1", "resource_id": "7fd91543-6b1f-3a69-91b9-9ae50369fab3", "resource_type": "person"},
             ref.data,
         )
 
@@ -47,7 +46,7 @@ class TestC4(unittest.TestCase):
         self.assertEqual("s1", p.name)
         self.assertEqual("amazing", p.description)
         self.assertEqual("c4", p.provider)
-        self.assertEqual(UUID("def66b36-2de7-31ce-bab6-91401ff441b1"), p.resource_id)
+        self.assertEqual("def66b36-2de7-31ce-bab6-91401ff441b1", p.resource_id)
         self.assertEqual("software_system", p.resource_type)
         self.assertEqual("arn:c4:software_system:def66b36-2de7-31ce-bab6-91401ff441b1", p.arn)
 
@@ -70,7 +69,7 @@ class TestC4(unittest.TestCase):
         self.assertEqual(
             {
                 "name": "p1",
-                "resource_id": UUID("09cdf16f-a6d8-3d00-9627-ffc972c55444"),
+                "resource_id": "09cdf16f-a6d8-3d00-9627-ffc972c55444",
                 "resource_type": "software_system",
             },
             ref.data,
@@ -86,7 +85,7 @@ class TestC4(unittest.TestCase):
         self.assertEqual("amazing container", p.description)
         self.assertEqual("docker", p.technology)
         self.assertEqual("c4", p.provider)
-        self.assertEqual(UUID("7eed994b-1cc3-3d80-a9c1-5721146f76cb"), p.resource_id)
+        self.assertEqual("7eed994b-1cc3-3d80-a9c1-5721146f76cb", p.resource_id)
         self.assertEqual("container", p.resource_type)
         self.assertEqual("arn:c4:container:7eed994b-1cc3-3d80-a9c1-5721146f76cb", p.arn)
 
@@ -116,7 +115,7 @@ class TestC4(unittest.TestCase):
         self.assertEqual("p1", ref.name)
         self.assertEqual("arn:c4:container:0266db1f-3b7c-3796-a899-00b34cab6f93", ref.arn)
         self.assertEqual(
-            {"name": "p1", "resource_id": UUID("0266db1f-3b7c-3796-a899-00b34cab6f93"), "resource_type": "container"},
+            {"name": "p1", "resource_id": "0266db1f-3b7c-3796-a899-00b34cab6f93", "resource_type": "container"},
             ref.data,
         )
 
@@ -138,7 +137,7 @@ class TestC4(unittest.TestCase):
         self.assertEqual("amazing component", p.description)
         self.assertIsNone(p.parent)
         self.assertEqual("c4", p.provider)
-        self.assertEqual(UUID("3ebca1af-c7d1-3240-9763-4c820d2d950c"), p.resource_id)
+        self.assertEqual("3ebca1af-c7d1-3240-9763-4c820d2d950c", p.resource_id)
         self.assertEqual("component", p.resource_type)
         self.assertEqual("arn:c4:component:3ebca1af-c7d1-3240-9763-4c820d2d950c", p.arn)
 
@@ -161,7 +160,7 @@ class TestC4(unittest.TestCase):
         self.assertEqual("p1", ref.name)
         self.assertEqual("arn:c4:component:776690e1-ec29-39ba-89bf-66a3faa1a630", ref.arn)
         self.assertEqual(
-            {"name": "p1", "resource_id": UUID("776690e1-ec29-39ba-89bf-66a3faa1a630"), "resource_type": "component"},
+            {"name": "p1", "resource_id": "776690e1-ec29-39ba-89bf-66a3faa1a630", "resource_type": "component"},
             ref.data,
         )
 
@@ -183,7 +182,7 @@ class TestC4(unittest.TestCase):
                 "extended_attributes": {},
                 "parent": {
                     "name": "soft1",
-                    "resource_id": UUID("be6a2615-3c7c-3315-ac94-68c221553e78"),
+                    "resource_id": "be6a2615-3c7c-3315-ac94-68c221553e78",
                     "resource_type": "container",
                 },
             },
@@ -196,7 +195,7 @@ class TestC4(unittest.TestCase):
         self.assertEqual("amazing code element", p.description)
         self.assertIsNone(p.parent)
         self.assertEqual("c4", p.provider)
-        self.assertEqual(UUID("c24793ba-7a0c-3597-aae3-24aa39c127e2"), p.resource_id)
+        self.assertEqual("c24793ba-7a0c-3597-aae3-24aa39c127e2", p.resource_id)
         self.assertEqual("code_element", p.resource_type)
         self.assertEqual("arn:c4:code_element:c24793ba-7a0c-3597-aae3-24aa39c127e2", p.arn)
 
@@ -221,7 +220,7 @@ class TestC4(unittest.TestCase):
         self.assertEqual(
             {
                 "name": "p1",
-                "resource_id": UUID("044a817c-a0b2-3a87-bc3d-3caf272e5769"),
+                "resource_id": "044a817c-a0b2-3a87-bc3d-3caf272e5769",
                 "resource_type": "code_element",
             },
             ref.data,
@@ -244,7 +243,7 @@ class TestC4(unittest.TestCase):
                 "name": "s1",
                 "parent": {
                     "name": "soft1",
-                    "resource_id": UUID("3ca2a13b-43fa-3ecd-a872-5657f036d004"),
+                    "resource_id": "3ca2a13b-43fa-3ecd-a872-5657f036d004",
                     "resource_type": "component",
                 },
                 "extended_attributes": {},
@@ -268,12 +267,12 @@ class TestC4(unittest.TestCase):
                 "name": "test",
                 "origin": {
                     "name": "container",
-                    "resource_id": UUID("056cf4be-829b-3756-bf5a-453419b65488"),
+                    "resource_id": "056cf4be-829b-3756-bf5a-453419b65488",
                     "resource_type": "container",
                 },
                 "target": {
                     "name": "target_container",
-                    "resource_id": UUID("f2efe0b7-4c11-366c-b4bd-7071e21611e2"),
+                    "resource_id": "f2efe0b7-4c11-366c-b4bd-7071e21611e2",
                     "resource_type": "container",
                 },
                 "technology": None,
