@@ -144,7 +144,7 @@ class BaseModel:
         """
         d = asdict(self)
         for (k, v) in d.items():
-            if isinstance(v, Reference):
+            if isinstance(v, Reference) or isinstance(v, BaseModel):
                 d[k] = v.data
         return d
 

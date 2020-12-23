@@ -44,7 +44,7 @@ class Container(ExtendedModel):
             description=data.get("description"),
             extended_attributes=data.get("extended_attributes", {}),
         )
-        if "parent" in data:
+        if "parent" in data and data["parent"] and "name" in data["parent"]:
             item.attach(name=data["parent"]["name"])
         return item
 

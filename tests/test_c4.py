@@ -41,6 +41,14 @@ class TestC4(unittest.TestCase):
         self.assertEqual(ref, PersonReference(name="p1"))
         self.assertNotEqual(ref, PersonReference(name="p2"))
 
+    def test_person_from_resource(self):
+        a = Person(name="p1", description="test")
+        b = Person.from_resource(data=a.data)
+        self.assertIsNotNone(b)
+        self.assertEqual(a, b)
+        self.assertEqual("p1", b.name)
+        self.assertEqual("test", b.description)
+
     def test_software_system(self):
         p = SoftwareSystem(name="s1", description="amazing")
         self.assertEqual("s1", p.name)
@@ -78,6 +86,15 @@ class TestC4(unittest.TestCase):
         self.assertEqual(ref, SoftwareSystemReference(name="p1"))
         self.assertNotEqual(ref, SoftwareSystemReference(name="p2"))
         self.assertNotEqual(ref, PersonReference(name="p1"))
+
+    def test_software_system_from_resource(self):
+        a = SoftwareSystem(name="p1", description="test")
+        b = SoftwareSystem.from_resource(data=a.data)
+        self.assertIsNotNone(b)
+        self.assertEqual(a, b)
+        self.assertEqual("p1", b.name)
+        self.assertEqual("test", b.description)
+
 
     def test_container(self):
         p = Container(name="s1", description="amazing container", technology="docker")
@@ -130,6 +147,19 @@ class TestC4(unittest.TestCase):
         self.assertIsNotNone(p.parent)
         self.assertEqual(p.parent, SoftwareSystemReference(name="soft1"))
         self.assertEqual(p.parent, SoftwareSystem(name="soft1"))
+
+    def test_container_from_resource(self):
+        a = Container(name="p1", description="test", technology="docker")
+        b = Container.from_resource(data=a.data)
+        self.assertIsNotNone(b)
+        self.assertEqual(a, b)
+        self.assertEqual("p1", b.name)
+        self.assertEqual("test", b.description)
+        self.assertEqual("docker", b.technology)
+
+        a.attach("soft1")
+        b = Container.from_resource(data=a.data)
+        self.assertEqual(SoftwareSystem(name="soft1"), b.parent)
 
     def test_component(self):
         p = Component(name="s1", description="amazing component")
@@ -188,6 +218,19 @@ class TestC4(unittest.TestCase):
             },
             p.data,
         )
+
+    def test_component_from_resource(self):
+        a = Component(name="p1", description="test")
+        b = Component.from_resource(data=a.data)
+        self.assertIsNotNone(b)
+        self.assertEqual(a, b)
+        self.assertEqual("p1", b.name)
+        self.assertEqual("test", b.description)
+
+        a.attach("soft1")
+        b = Component.from_resource(data=a.data)
+        self.assertEqual(ContainerReference(name="soft1"), b.parent)
+
 
     def test_code_element(self):
         p = CodeElement(name="s1", description="amazing code element")
@@ -250,6 +293,20 @@ class TestC4(unittest.TestCase):
             },
             p.data,
         )
+
+
+    def test_code_element_from_resource(self):
+        a = CodeElement(name="p1", description="test")
+        b = CodeElement.from_resource(data=a.data)
+        self.assertIsNotNone(b)
+        self.assertEqual(a, b)
+        self.assertEqual("p1", b.name)
+        self.assertEqual("test", b.description)
+
+        a.attach("soft1")
+        b = CodeElement.from_resource(data=a.data)
+        self.assertEqual(ComponentReference(name="soft1"), b.parent)
+
 
     def test_relation_ship(self):
         r = RelationShip(

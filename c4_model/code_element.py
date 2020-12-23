@@ -29,14 +29,14 @@ class CodeElement(ExtendedModel):
             data (Dict): dictionnary of this instance.
 
         Returns:
-            (CodeElement): a CodeElement instance.
+            (CodeElement): a CodeElement
         """
         item = CodeElement(
             name=data["name"],
             description=data.get("description"),
             extended_attributes=data.get("extended_attributes", {}),
         )
-        if "parent" in data:
+        if "parent" in data and data["parent"] and "name" in data["parent"]:
             item.attach(name=data["parent"]["name"])
         return item
 
