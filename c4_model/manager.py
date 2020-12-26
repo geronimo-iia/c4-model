@@ -3,6 +3,7 @@ from collections import UserDict
 from typing import Iterable
 
 from .definition import BaseModel
+from .relation_ship import RelationShip
 
 __all__ = ["C4Manager"]
 
@@ -71,3 +72,17 @@ class C4Manager(UserDict):
     def lookup_relation_ship(self):
         """Lookup for all relation ship instance."""
         return self.lookup(arn_query="arn:c4:relation_ship:*")
+
+    def lookup_relation_ship_with_origin(self, origin: BaseModel) -> RelationShip:
+        """Lookup for all relation ship instance with specified origin."""
+        return filter(
+            lambda r: r.origin == origin,
+            map(lambda arn: self[arn], self.lookup_relation_ship()),  # type: ignore[return-value]
+        )
+
+    def lookup_relation_ship_with_target(self, target: BaseModel) -> RelationShip:
+        """Lookup for all relation ship instance with specified target."""
+        return filter(
+            lambda r: r.target == target,
+            map(lambda arn: self[arn], self.lookup_relation_ship()),  # type: ignore[return-value]
+        )

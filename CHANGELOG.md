@@ -11,3 +11,4 @@
 - Add Reference system and test unit
 - Add a basic C4Manager
 - Expose Reference and ModelReference
+- Add lookup_relation_ship_with_XXXX on C4Manager
