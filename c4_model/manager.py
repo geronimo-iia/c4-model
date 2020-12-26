@@ -16,9 +16,10 @@ class C4Manager(UserDict):
             for item in data:
                 self.add(item)
 
-    def add(self, item: BaseModel):
+    def add(self, item: BaseModel) -> BaseModel:
         """Add a model."""
         self.data[item.arn] = item
+        return item
 
     def lookup(self, arn_query: str) -> Iterable[str]:
         """Lookup arn key for specified query.
@@ -42,7 +43,10 @@ class C4Manager(UserDict):
         Returns:
             (Iterable[BaseModel]): child's with specified parent arn
         """
-        return filter(lambda item: hasattr(item, "parent") and parent == item.parent, self.data.values())
+        return filter(
+            lambda item: hasattr(item, "parent") and parent == item.parent,  # type: ignore[attr-defined]
+            self.data.values(),
+        )
 
     def lookup_person(self):
         """Lookup for all person instance."""
