@@ -36,3 +36,7 @@ class TestC4Magnager(unittest.TestCase):
         self.assertEqual(20, len(list(manager.lookup_component())))
         self.assertEqual(25, len(list(manager.lookup_code_element())))
         self.assertEqual(0, len(list(manager.lookup_relation_ship())))
+
+    def test_empty_lookup(self):
+        manager = C4Manager()
+        self.assertEqual(0, len(list(manager.lookup_person())))
