@@ -32,9 +32,17 @@ class Component(ExtendedModel):
     parent: Optional[ContainerReference] = None
     description: Optional[str] = None
 
-    def attach(self, name: str):
-        """Attach this component to a container."""
+    def attach(self, name: str) -> ContainerReference:
+        """Attach this component to a container.
+
+        Args:
+            name (str): name of parent
+
+        Returns:
+            (ContainerReference): parent reference
+        """
         self.parent = ContainerReference(name)
+        return self.parent
 
     @classmethod
     def from_resource(cls, data: Dict) -> "Component":

@@ -23,9 +23,17 @@ class CodeElement(ExtendedModel):
     parent: Optional[ComponentReference] = None
     description: Optional[str] = None
 
-    def attach(self, name: str):
-        """Attach this code element to a component."""
+    def attach(self, name: str) -> ComponentReference:
+        """Attach this code element to a component.
+
+        Args:
+            name (str): name of parent
+
+        Returns:
+            (ComponentReference): parent reference
+        """
         self.parent = ComponentReference(name)
+        return self.parent
 
     @classmethod
     def from_resource(cls, data: Dict) -> "CodeElement":

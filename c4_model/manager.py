@@ -6,6 +6,9 @@ from .definition import BaseModel
 
 __all__ = ["C4Manager"]
 
+# TODO: add lookup for child of soft, container and component
+# TODO: add lookup for relation for origin/target
+
 
 class C4Manager(UserDict):
     """C4Manager is an in memory dict of C4 Model."""

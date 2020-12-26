@@ -10,3 +10,4 @@
 - Add C4 entities and test unit
 - Add Reference system and test unit
 - Add a basic C4Manager
+- Expose Reference and ModelReference

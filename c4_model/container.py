@@ -32,9 +32,17 @@ class Container(ExtendedModel):
     technology: Optional[str] = None
     description: Optional[str] = None
 
-    def attach(self, name: str):
-        """Attach this container to a software system."""
+    def attach(self, name: str) -> SoftwareSystemReference:
+        """Attach this container to a software system.
+
+        Args:
+            name (str): name of parent
+
+        Returns:
+            (SoftwareSystemReference): parent reference
+        """
         self.parent = SoftwareSystemReference(name)
+        return self.parent
 
     @classmethod
     def from_resource(cls, data: Dict) -> "Container":
