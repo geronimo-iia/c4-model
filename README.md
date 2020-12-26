@@ -15,12 +15,12 @@ This module provide a simple C4 Metamodel implementation.
 See [c4model](https://c4model.com/#Notation).
 
 This project expose c4 resource:
-- `Person`
-- `SoftwareSystem`
-- `Container`
-- `Component`
-- `CodeElement`
-- `RelationShip`
+- [Person](https://geronimo-iia.github.io/c4-model/api.html#c4_model.Person)
+- [SoftwareSystem](https://geronimo-iia.github.io/c4-model/api.html#c4_model.SoftwareSystem)
+- [Container](https://geronimo-iia.github.io/c4-model/api.html#c4_model.Container)
+- [Component](https://geronimo-iia.github.io/c4-model/api.html#c4_model.Component)
+- [CodeElement](https://geronimo-iia.github.io/c4-model/api.html#c4_model.CodeElement)
+- [RelationShip](https://geronimo-iia.github.io/c4-model/api.html#c4_model.RelationShip)
 
 Each of them have:
 - an unique `arn` based on their type and name
@@ -29,7 +29,7 @@ Each of them have:
 - a `from_resource` method to instanciate a resource from a dict
 
 
-Another class `C4Manager`, act as a container of c4 resource, with `lookup` facilities on resource's arn.
+Another class [C4Manager](https://geronimo-iia.github.io/c4-model/api.html#c4_model.C4Manager), act as a container of c4 resource, with `lookup` facilities on resource's arn.
 
 
 ## Installation
