@@ -185,20 +185,38 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.Person" title="c4_model.Person"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Person</span></code></a>(name[, extended_attributes, description])</p></td>
 <td><p>Person Notation.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.SoftwareSystem" title="c4_model.SoftwareSystem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SoftwareSystem</span></code></a>(name[, extended_attributes, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.PersonReference" title="c4_model.PersonReference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PersonReference</span></code></a>(name)</p></td>
+<td><p>Person reference.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.SoftwareSystem" title="c4_model.SoftwareSystem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SoftwareSystem</span></code></a>(name[, extended_attributes, …])</p></td>
 <td><p>Software System Notation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.SoftwareSystemReference" title="c4_model.SoftwareSystemReference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SoftwareSystemReference</span></code></a>(name)</p></td>
+<td><p>SoftwareSystem reference.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.Container" title="c4_model.Container"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Container</span></code></a>(name[, extended_attributes, …])</p></td>
 <td><p>Container Notation.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.Component" title="c4_model.Component"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Component</span></code></a>(name[, extended_attributes, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.ContainerReference" title="c4_model.ContainerReference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ContainerReference</span></code></a>(name)</p></td>
+<td><p>Container reference.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.Component" title="c4_model.Component"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Component</span></code></a>(name[, extended_attributes, …])</p></td>
 <td><p>Component Notation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.ComponentReference" title="c4_model.ComponentReference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ComponentReference</span></code></a>(name)</p></td>
+<td><p>Component reference.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.CodeElement" title="c4_model.CodeElement"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CodeElement</span></code></a>(name[, extended_attributes, …])</p></td>
 <td><p>CodeElement Notation.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.RelationShip" title="c4_model.RelationShip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RelationShip</span></code></a>(name, origin, target[, …])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.CodeElementReference" title="c4_model.CodeElementReference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CodeElementReference</span></code></a>(name)</p></td>
+<td><p>Code element reference.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.RelationShip" title="c4_model.RelationShip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RelationShip</span></code></a>(name, origin, target[, …])</p></td>
 <td><p>RelationShip Notation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.ModelReference" title="c4_model.ModelReference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModelReference</span></code></a></p></td>
+<td><p>Enumerate referencable model.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.C4Manager" title="c4_model.C4Manager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">C4Manager</span></code></a>([data])</p></td>
 <td><p>C4Manager is an in memory dict of C4 Model.</p></td>
@@ -250,7 +268,7 @@
 <dd><p>optional Component parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>Optional[ComponentReference]</p>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="#c4_model.ComponentReference" title="c4_model.ComponentReference">ComponentReference</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -297,8 +315,19 @@
 
 <dl class="method">
 <dt id="c4_model.CodeElement.attach">
-<code class="sig-name descname">attach</code><span class="sig-paren">(</span><em class="sig-param">name: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/code_element.html#CodeElement.attach"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.CodeElement.attach" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach</code><span class="sig-paren">(</span><em class="sig-param">name: str</em><span class="sig-paren">)</span> &#x2192; c4_model.component.ComponentReference<a class="reference internal" href="_modules/c4_model/code_element.html#CodeElement.attach"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.CodeElement.attach" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attach this code element to a component.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – name of parent</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>parent reference</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(<a class="reference internal" href="#c4_model.ComponentReference" title="c4_model.ComponentReference">ComponentReference</a>)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -317,6 +346,30 @@
 </dd>
 </dl>
 </dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c4_model.CodeElementReference">
+<em class="property">class </em><code class="sig-prename descclassname">c4_model.</code><code class="sig-name descname">CodeElementReference</code><span class="sig-paren">(</span><em class="sig-param">name: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/code_element.html#CodeElementReference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.CodeElementReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">c4_model.definition.Reference</span></code></p>
+<p>Code element reference.</p>
+<p><strong>Attributes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.CodeElementReference.name" title="c4_model.CodeElementReference.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c4_model.CodeElementReference.name</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="c4_model.CodeElementReference.name">
+<code class="sig-name descname">name</code><em class="property"> = None</em><a class="headerlink" href="#c4_model.CodeElementReference.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -373,7 +426,7 @@ in the same process space.</p>
 <dd><p>optional Container parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>Optional[ContainerReference]</p>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="#c4_model.ContainerReference" title="c4_model.ContainerReference">ContainerReference</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -420,8 +473,19 @@ in the same process space.</p>
 
 <dl class="method">
 <dt id="c4_model.Component.attach">
-<code class="sig-name descname">attach</code><span class="sig-paren">(</span><em class="sig-param">name: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/component.html#Component.attach"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.Component.attach" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach</code><span class="sig-paren">(</span><em class="sig-param">name: str</em><span class="sig-paren">)</span> &#x2192; c4_model.container.ContainerReference<a class="reference internal" href="_modules/c4_model/component.html#Component.attach"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.Component.attach" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attach this component to a container.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – name of parent</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>parent reference</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(<a class="reference internal" href="#c4_model.ContainerReference" title="c4_model.ContainerReference">ContainerReference</a>)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -440,6 +504,30 @@ in the same process space.</p>
 </dd>
 </dl>
 </dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c4_model.ComponentReference">
+<em class="property">class </em><code class="sig-prename descclassname">c4_model.</code><code class="sig-name descname">ComponentReference</code><span class="sig-paren">(</span><em class="sig-param">name: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/component.html#ComponentReference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.ComponentReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">c4_model.definition.Reference</span></code></p>
+<p>Component reference.</p>
+<p><strong>Attributes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.ComponentReference.name" title="c4_model.ComponentReference.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c4_model.ComponentReference.name</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="c4_model.ComponentReference.name">
+<code class="sig-name descname">name</code><em class="property"> = None</em><a class="headerlink" href="#c4_model.ComponentReference.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -504,7 +592,7 @@ Because of this, communication between containers typically takes the form of an
 <dd><p>optional SoftwareSystem parent.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>Optional[SoftwareSystemReference]</p>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="#c4_model.SoftwareSystemReference" title="c4_model.SoftwareSystemReference">SoftwareSystemReference</a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -559,8 +647,19 @@ Because of this, communication between containers typically takes the form of an
 
 <dl class="method">
 <dt id="c4_model.Container.attach">
-<code class="sig-name descname">attach</code><span class="sig-paren">(</span><em class="sig-param">name: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/container.html#Container.attach"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.Container.attach" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">attach</code><span class="sig-paren">(</span><em class="sig-param">name: str</em><span class="sig-paren">)</span> &#x2192; c4_model.software_system.SoftwareSystemReference<a class="reference internal" href="_modules/c4_model/container.html#Container.attach"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.Container.attach" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attach this container to a software system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – name of parent</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>parent reference</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(<a class="reference internal" href="#c4_model.SoftwareSystemReference" title="c4_model.SoftwareSystemReference">SoftwareSystemReference</a>)</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -579,6 +678,30 @@ Because of this, communication between containers typically takes the form of an
 </dd>
 </dl>
 </dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c4_model.ContainerReference">
+<em class="property">class </em><code class="sig-prename descclassname">c4_model.</code><code class="sig-name descname">ContainerReference</code><span class="sig-paren">(</span><em class="sig-param">name: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/container.html#ContainerReference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.ContainerReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">c4_model.definition.Reference</span></code></p>
+<p>Container reference.</p>
+<p><strong>Attributes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.ContainerReference.name" title="c4_model.ContainerReference.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c4_model.ContainerReference.name</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="c4_model.ContainerReference.name">
+<code class="sig-name descname">name</code><em class="property"> = None</em><a class="headerlink" href="#c4_model.ContainerReference.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -818,35 +941,38 @@ Because of this, communication between containers typically takes the form of an
 <tr class="row-even"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup" title="c4_model.C4Manager.lookup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup</span></code></a>(arn_query)</p></td>
 <td><p>Lookup arn key for specified query.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_code_element" title="c4_model.C4Manager.lookup_code_element"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_code_element</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_children" title="c4_model.C4Manager.lookup_children"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_children</span></code></a>(parent)</p></td>
+<td><p>Lookup children for specified parent.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_code_element" title="c4_model.C4Manager.lookup_code_element"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_code_element</span></code></a>()</p></td>
 <td><p>Lookup for all code element instance.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_component" title="c4_model.C4Manager.lookup_component"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_component</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_component" title="c4_model.C4Manager.lookup_component"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_component</span></code></a>()</p></td>
 <td><p>Lookup for all component instance.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_container" title="c4_model.C4Manager.lookup_container"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_container</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_container" title="c4_model.C4Manager.lookup_container"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_container</span></code></a>()</p></td>
 <td><p>Lookup for all container instance.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_person" title="c4_model.C4Manager.lookup_person"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_person</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_person" title="c4_model.C4Manager.lookup_person"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_person</span></code></a>()</p></td>
 <td><p>Lookup for all person instance.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_relation_ship" title="c4_model.C4Manager.lookup_relation_ship"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_relation_ship</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_relation_ship" title="c4_model.C4Manager.lookup_relation_ship"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_relation_ship</span></code></a>()</p></td>
 <td><p>Lookup for all relation ship instance.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_software_system" title="c4_model.C4Manager.lookup_software_system"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_software_system</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_software_system" title="c4_model.C4Manager.lookup_software_system"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_software_system</span></code></a>()</p></td>
 <td><p>Lookup for all software system instance.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="c4_model.C4Manager.add">
-<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">item: c4_model.definition.BaseModel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/manager.html#C4Manager.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.C4Manager.add" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">item: c4_model.definition.BaseModel</em><span class="sig-paren">)</span> &#x2192; c4_model.definition.BaseModel<a class="reference internal" href="_modules/c4_model/manager.html#C4Manager.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.C4Manager.add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a model.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="c4_model.C4Manager.lookup">
-<code class="sig-name descname">lookup</code><span class="sig-paren">(</span><em class="sig-param">arn_query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/manager.html#C4Manager.lookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.C4Manager.lookup" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">lookup</code><span class="sig-paren">(</span><em class="sig-param">arn_query: str</em><span class="sig-paren">)</span> &#x2192; Iterable[str]<a class="reference internal" href="_modules/c4_model/manager.html#C4Manager.lookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.C4Manager.lookup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lookup arn key for specified query.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -854,6 +980,23 @@ Because of this, communication between containers typically takes the form of an
 </dd>
 <dt class="field-even">Yields</dt>
 <dd class="field-even"><p><em>(str)</em> – arn model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="c4_model.C4Manager.lookup_children">
+<code class="sig-name descname">lookup_children</code><span class="sig-paren">(</span><em class="sig-param">parent: c4_model.definition.BaseModel</em><span class="sig-paren">)</span> &#x2192; Iterable[c4_model.definition.BaseModel]<a class="reference internal" href="_modules/c4_model/manager.html#C4Manager.lookup_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.C4Manager.lookup_children" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lookup children for specified parent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parent_arn</strong> (<a class="reference internal" href="#c4_model.BaseModel" title="c4_model.BaseModel"><em>BaseModel</em></a>) – parent</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>child’s with specified parent arn</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(Iterable[<a class="reference internal" href="#c4_model.BaseModel" title="c4_model.BaseModel">BaseModel</a>])</p>
 </dd>
 </dl>
 </dd></dl>
@@ -979,6 +1122,150 @@ A person represents one of the human users of your software system (e.g. actors,
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>(<a class="reference internal" href="#c4_model.Person" title="c4_model.Person">Person</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c4_model.PersonReference">
+<em class="property">class </em><code class="sig-prename descclassname">c4_model.</code><code class="sig-name descname">PersonReference</code><span class="sig-paren">(</span><em class="sig-param">name: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/person.html#PersonReference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.PersonReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">c4_model.definition.Reference</span></code></p>
+<p>Person reference.</p>
+<p><strong>Attributes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.PersonReference.name" title="c4_model.PersonReference.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c4_model.PersonReference.name</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="c4_model.PersonReference.name">
+<code class="sig-name descname">name</code><em class="property"> = None</em><a class="headerlink" href="#c4_model.PersonReference.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c4_model.ModelReference">
+<em class="property">class </em><code class="sig-prename descclassname">c4_model.</code><code class="sig-name descname">ModelReference</code><a class="reference internal" href="_modules/c4_model/relation_ship.html#ModelReference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.ModelReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Enumerate referencable model.</p>
+<p><strong>Attributes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.ModelReference.CODE_ELEMENT" title="c4_model.ModelReference.CODE_ELEMENT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CODE_ELEMENT</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.ModelReference.COMPONENT" title="c4_model.ModelReference.COMPONENT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">COMPONENT</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.ModelReference.CONTAINER" title="c4_model.ModelReference.CONTAINER"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CONTAINER</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.ModelReference.PERSON" title="c4_model.ModelReference.PERSON"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PERSON</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.ModelReference.SOFTWARE_SYSTEM" title="c4_model.ModelReference.SOFTWARE_SYSTEM"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SOFTWARE_SYSTEM</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.ModelReference.create_reference" title="c4_model.ModelReference.create_reference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_reference</span></code></a>(name)</p></td>
+<td><p>Create a reference instance for the specified name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.ModelReference.from_name" title="c4_model.ModelReference.from_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_name</span></code></a>(name)</p></td>
+<td><p>Find ModelReference instance for specified name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.ModelReference.from_resource_type" title="c4_model.ModelReference.from_resource_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_resource_type</span></code></a>(resource_type)</p></td>
+<td><p>Find ModelReference instance for specified resource type.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="c4_model.ModelReference.PERSON">
+<code class="sig-name descname">PERSON</code><em class="property"> = (&lt;class 'c4_model.person.PersonReference'&gt;, 'person')</em><a class="headerlink" href="#c4_model.ModelReference.PERSON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.ModelReference.SOFTWARE_SYSTEM">
+<code class="sig-name descname">SOFTWARE_SYSTEM</code><em class="property"> = (&lt;class 'c4_model.software_system.SoftwareSystemReference'&gt;, 'software_system')</em><a class="headerlink" href="#c4_model.ModelReference.SOFTWARE_SYSTEM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.ModelReference.CONTAINER">
+<code class="sig-name descname">CONTAINER</code><em class="property"> = (&lt;class 'c4_model.container.ContainerReference'&gt;, 'container')</em><a class="headerlink" href="#c4_model.ModelReference.CONTAINER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.ModelReference.COMPONENT">
+<code class="sig-name descname">COMPONENT</code><em class="property"> = (&lt;class 'c4_model.component.ComponentReference'&gt;, 'component')</em><a class="headerlink" href="#c4_model.ModelReference.COMPONENT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="c4_model.ModelReference.CODE_ELEMENT">
+<code class="sig-name descname">CODE_ELEMENT</code><em class="property"> = (&lt;class 'c4_model.code_element.CodeElementReference'&gt;, 'code_element')</em><a class="headerlink" href="#c4_model.ModelReference.CODE_ELEMENT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="c4_model.ModelReference.create_reference">
+<code class="sig-name descname">create_reference</code><span class="sig-paren">(</span><em class="sig-param">name: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/relation_ship.html#ModelReference.create_reference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.ModelReference.create_reference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a reference instance for the specified name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="c4_model.ModelReference.from_name">
+<em class="property">classmethod </em><code class="sig-name descname">from_name</code><span class="sig-paren">(</span><em class="sig-param">name: str</em><span class="sig-paren">)</span> &#x2192; c4_model.relation_ship.ModelReference<a class="reference internal" href="_modules/c4_model/relation_ship.html#ModelReference.from_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.ModelReference.from_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find ModelReference instance for specified name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – c4 model name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the instance</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(<a class="reference internal" href="#c4_model.ModelReference" title="c4_model.ModelReference">ModelReference</a>)</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>(</strong><strong>RuntimeError</strong><strong>)</strong> – if no member is associated with the specified name.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="c4_model.ModelReference.from_resource_type">
+<em class="property">classmethod </em><code class="sig-name descname">from_resource_type</code><span class="sig-paren">(</span><em class="sig-param">resource_type: str</em><span class="sig-paren">)</span> &#x2192; c4_model.relation_ship.ModelReference<a class="reference internal" href="_modules/c4_model/relation_ship.html#ModelReference.from_resource_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.ModelReference.from_resource_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find ModelReference instance for specified resource type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>resource_type</strong> (<em>str</em>) – c4 resource type name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the instance</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(<a class="reference internal" href="#c4_model.ModelReference" title="c4_model.ModelReference">ModelReference</a>)</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>(</strong><strong>RuntimeError</strong><strong>)</strong> – if no member is associated with the specified resource type.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1223,6 +1510,30 @@ depends (or vice versa).</p>
 </dd>
 </dl>
 </dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="c4_model.SoftwareSystemReference">
+<em class="property">class </em><code class="sig-prename descclassname">c4_model.</code><code class="sig-name descname">SoftwareSystemReference</code><span class="sig-paren">(</span><em class="sig-param">name: str</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/software_system.html#SoftwareSystemReference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.SoftwareSystemReference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">c4_model.definition.Reference</span></code></p>
+<p>SoftwareSystem reference.</p>
+<p><strong>Attributes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.SoftwareSystemReference.name" title="c4_model.SoftwareSystemReference.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">c4_model.SoftwareSystemReference.name</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="c4_model.SoftwareSystemReference.name">
+<code class="sig-name descname">name</code><em class="property"> = None</em><a class="headerlink" href="#c4_model.SoftwareSystemReference.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 

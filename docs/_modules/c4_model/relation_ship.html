@@ -207,7 +207,7 @@
         <span class="k">return</span> <span class="n">item</span></div></div>
 
 
-<span class="nd">@unique</span>
+<div class="viewcode-block" id="ModelReference"><a class="viewcode-back" href="../../api.html#c4_model.ModelReference">[docs]</a><span class="nd">@unique</span>
 <span class="k">class</span> <span class="nc">ModelReference</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Enumerate referencable model.&quot;&quot;&quot;</span>
 
@@ -217,11 +217,11 @@
     <span class="n">COMPONENT</span> <span class="o">=</span> <span class="p">(</span><span class="n">ComponentReference</span><span class="p">,</span> <span class="n">camel_to_snake</span><span class="p">(</span><span class="n">Component</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
     <span class="n">CODE_ELEMENT</span> <span class="o">=</span> <span class="p">(</span><span class="n">CodeElementReference</span><span class="p">,</span> <span class="n">camel_to_snake</span><span class="p">(</span><span class="n">CodeElement</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">create_reference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="viewcode-block" id="ModelReference.create_reference"><a class="viewcode-back" href="../../api.html#c4_model.ModelReference.create_reference">[docs]</a>    <span class="k">def</span> <span class="nf">create_reference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Create a reference instance for the specified name.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span></div>
 
-    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="ModelReference.from_name"><a class="viewcode-back" href="../../api.html#c4_model.ModelReference.from_name">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ModelReference&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Find ModelReference instance for specified name.</span>
 
@@ -238,9 +238,9 @@
         <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">ModelReference</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">_upper_name</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">model</span>
-        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> not found in ModelReference&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> not found in ModelReference&quot;</span><span class="p">)</span></div>
 
-    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="ModelReference.from_resource_type"><a class="viewcode-back" href="../../api.html#c4_model.ModelReference.from_resource_type">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_resource_type</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">resource_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;ModelReference&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Find ModelReference instance for specified resource type.</span>
 
@@ -256,7 +256,7 @@
         <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">ModelReference</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">resource_type</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">model</span>
-        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">resource_type</span><span class="si">}</span><span class="s2"> not found in ModelReference&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">resource_type</span><span class="si">}</span><span class="s2"> not found in ModelReference&quot;</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

@@ -166,11 +166,12 @@
             <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 
-<div class="viewcode-block" id="C4Manager.add"><a class="viewcode-back" href="../../api.html#c4_model.C4Manager.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">BaseModel</span><span class="p">):</span>
+<div class="viewcode-block" id="C4Manager.add"><a class="viewcode-back" href="../../api.html#c4_model.C4Manager.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">BaseModel</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BaseModel</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Add a model.&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">arn</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">arn</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span>
+        <span class="k">return</span> <span class="n">item</span></div>
 
-<div class="viewcode-block" id="C4Manager.lookup"><a class="viewcode-back" href="../../api.html#c4_model.C4Manager.lookup">[docs]</a>    <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arn_query</span><span class="p">):</span>
+<div class="viewcode-block" id="C4Manager.lookup"><a class="viewcode-back" href="../../api.html#c4_model.C4Manager.lookup">[docs]</a>    <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arn_query</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;Lookup arn key for specified query.</span>
 
 <span class="sd">        Args:</span>
@@ -182,6 +183,20 @@
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">regex</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
                 <span class="k">yield</span> <span class="n">key</span></div>
+
+<div class="viewcode-block" id="C4Manager.lookup_children"><a class="viewcode-back" href="../../api.html#c4_model.C4Manager.lookup_children">[docs]</a>    <span class="k">def</span> <span class="nf">lookup_children</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n">BaseModel</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">BaseModel</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Lookup children for specified parent.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            parent_arn (BaseModel): parent</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            (Iterable[BaseModel]): child&#39;s with specified parent arn</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">filter</span><span class="p">(</span>
+            <span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot;parent&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">parent</span> <span class="o">==</span> <span class="n">item</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span>  <span class="c1"># type: ignore[attr-defined]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span>
+        <span class="p">)</span></div>
 
 <div class="viewcode-block" id="C4Manager.lookup_person"><a class="viewcode-back" href="../../api.html#c4_model.C4Manager.lookup_person">[docs]</a>    <span class="k">def</span> <span class="nf">lookup_person</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Lookup for all person instance.&quot;&quot;&quot;</span>

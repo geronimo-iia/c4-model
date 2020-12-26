@@ -182,9 +182,17 @@
     <span class="n">parent</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ContainerReference</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="Component.attach"><a class="viewcode-back" href="../../api.html#c4_model.Component.attach">[docs]</a>    <span class="k">def</span> <span class="nf">attach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Attach this component to a container.&quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">ContainerReference</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div>
+<div class="viewcode-block" id="Component.attach"><a class="viewcode-back" href="../../api.html#c4_model.Component.attach">[docs]</a>    <span class="k">def</span> <span class="nf">attach</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ContainerReference</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Attach this component to a container.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name (str): name of parent</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            (ContainerReference): parent reference</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">ContainerReference</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span></div>
 
 <div class="viewcode-block" id="Component.from_resource"><a class="viewcode-back" href="../../api.html#c4_model.Component.from_resource">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_resource</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Component&quot;</span><span class="p">:</span>
@@ -206,11 +214,11 @@
         <span class="k">return</span> <span class="n">item</span></div></div>
 
 
-<span class="k">class</span> <span class="nc">ComponentReference</span><span class="p">(</span><span class="n">Reference</span><span class="p">):</span>
+<div class="viewcode-block" id="ComponentReference"><a class="viewcode-back" href="../../api.html#c4_model.ComponentReference">[docs]</a><span class="k">class</span> <span class="nc">ComponentReference</span><span class="p">(</span><span class="n">Reference</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Component reference.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">c4_class_name</span><span class="o">=</span><span class="n">Component</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">c4_class_name</span><span class="o">=</span><span class="n">Component</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span></div>
 </pre></div>
 
            </div>
