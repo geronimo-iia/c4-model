@@ -959,6 +959,12 @@ Because of this, communication between containers typically takes the form of an
 <tr class="row-even"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_relation_ship" title="c4_model.C4Manager.lookup_relation_ship"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_relation_ship</span></code></a>()</p></td>
 <td><p>Lookup for all relation ship instance.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_relation_ship_with_origin" title="c4_model.C4Manager.lookup_relation_ship_with_origin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_relation_ship_with_origin</span></code></a>(origin)</p></td>
+<td><p>Lookup for all relation ship instance with specified origin.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_relation_ship_with_target" title="c4_model.C4Manager.lookup_relation_ship_with_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_relation_ship_with_target</span></code></a>(target)</p></td>
+<td><p>Lookup for all relation ship instance with specified target.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#c4_model.C4Manager.lookup_software_system" title="c4_model.C4Manager.lookup_software_system"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lookup_software_system</span></code></a>()</p></td>
 <td><p>Lookup for all software system instance.</p></td>
 </tr>
@@ -1035,6 +1041,18 @@ Because of this, communication between containers typically takes the form of an
 <dt id="c4_model.C4Manager.lookup_relation_ship">
 <code class="sig-name descname">lookup_relation_ship</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/c4_model/manager.html#C4Manager.lookup_relation_ship"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.C4Manager.lookup_relation_ship" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lookup for all relation ship instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="c4_model.C4Manager.lookup_relation_ship_with_origin">
+<code class="sig-name descname">lookup_relation_ship_with_origin</code><span class="sig-paren">(</span><em class="sig-param">origin: c4_model.definition.BaseModel</em><span class="sig-paren">)</span> &#x2192; c4_model.relation_ship.RelationShip<a class="reference internal" href="_modules/c4_model/manager.html#C4Manager.lookup_relation_ship_with_origin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.C4Manager.lookup_relation_ship_with_origin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lookup for all relation ship instance with specified origin.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="c4_model.C4Manager.lookup_relation_ship_with_target">
+<code class="sig-name descname">lookup_relation_ship_with_target</code><span class="sig-paren">(</span><em class="sig-param">target: c4_model.definition.BaseModel</em><span class="sig-paren">)</span> &#x2192; c4_model.relation_ship.RelationShip<a class="reference internal" href="_modules/c4_model/manager.html#C4Manager.lookup_relation_ship_with_target"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#c4_model.C4Manager.lookup_relation_ship_with_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lookup for all relation ship instance with specified target.</p>
 </dd></dl>
 
 </dd></dl>

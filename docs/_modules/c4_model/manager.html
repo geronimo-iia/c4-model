@@ -153,6 +153,7 @@
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span>
 
 <span class="kn">from</span> <span class="nn">.definition</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+<span class="kn">from</span> <span class="nn">.relation_ship</span> <span class="kn">import</span> <span class="n">RelationShip</span>
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;C4Manager&quot;</span><span class="p">]</span>
 
@@ -220,7 +221,21 @@
 
 <div class="viewcode-block" id="C4Manager.lookup_relation_ship"><a class="viewcode-back" href="../../api.html#c4_model.C4Manager.lookup_relation_ship">[docs]</a>    <span class="k">def</span> <span class="nf">lookup_relation_ship</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Lookup for all relation ship instance.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">arn_query</span><span class="o">=</span><span class="s2">&quot;arn:c4:relation_ship:*&quot;</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">arn_query</span><span class="o">=</span><span class="s2">&quot;arn:c4:relation_ship:*&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="C4Manager.lookup_relation_ship_with_origin"><a class="viewcode-back" href="../../api.html#c4_model.C4Manager.lookup_relation_ship_with_origin">[docs]</a>    <span class="k">def</span> <span class="nf">lookup_relation_ship_with_origin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">origin</span><span class="p">:</span> <span class="n">BaseModel</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RelationShip</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Lookup for all relation ship instance with specified origin.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">filter</span><span class="p">(</span>
+            <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">origin</span> <span class="o">==</span> <span class="n">origin</span><span class="p">,</span>
+            <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">arn</span><span class="p">:</span> <span class="bp">self</span><span class="p">[</span><span class="n">arn</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">lookup_relation_ship</span><span class="p">()),</span>  <span class="c1"># type: ignore[return-value]</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="C4Manager.lookup_relation_ship_with_target"><a class="viewcode-back" href="../../api.html#c4_model.C4Manager.lookup_relation_ship_with_target">[docs]</a>    <span class="k">def</span> <span class="nf">lookup_relation_ship_with_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">BaseModel</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RelationShip</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Lookup for all relation ship instance with specified target.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">filter</span><span class="p">(</span>
+            <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">r</span><span class="o">.</span><span class="n">target</span> <span class="o">==</span> <span class="n">target</span><span class="p">,</span>
+            <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">arn</span><span class="p">:</span> <span class="bp">self</span><span class="p">[</span><span class="n">arn</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">lookup_relation_ship</span><span class="p">()),</span>  <span class="c1"># type: ignore[return-value]</span>
+        <span class="p">)</span></div></div>
 </pre></div>
 
            </div>
