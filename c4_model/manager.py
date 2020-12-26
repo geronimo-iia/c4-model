@@ -6,9 +6,6 @@ from .definition import BaseModel
 
 __all__ = ["C4Manager"]
 
-# TODO: add lookup for child of soft, container and component
-# TODO: add lookup for relation for origin/target
-
 
 class C4Manager(UserDict):
     """C4Manager is an in memory dict of C4 Model."""
@@ -23,7 +20,7 @@ class C4Manager(UserDict):
         """Add a model."""
         self.data[item.arn] = item
 
-    def lookup(self, arn_query):
+    def lookup(self, arn_query: str) -> Iterable[str]:
         """Lookup arn key for specified query.
 
         Args:
@@ -35,6 +32,17 @@ class C4Manager(UserDict):
         for key in self.data.keys():
             if regex.search(key):
                 yield key
+
+    def lookup_children(self, parent: BaseModel) -> Iterable[BaseModel]:
+        """Lookup children for specified parent.
+
+        Args:
+            parent_arn (BaseModel): parent
+
+        Returns:
+            (Iterable[BaseModel]): child's with specified parent arn
+        """
+        return filter(lambda item: hasattr(item, "parent") and parent == item.parent, self.data.values())
 
     def lookup_person(self):
         """Lookup for all person instance."""
