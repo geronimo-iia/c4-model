@@ -2,7 +2,7 @@
 
 
 [![Unix Build Status](https://img.shields.io/travis/geronimo-iia/c4-model/master.svg?label=unix)](https://travis-ci.com/geronimo-iia/c4-model)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fe669a02b4aa46b5b1faf619ba2bf382)](https://www.codacy.com/app/geronimo-iia/c4-model?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=geronimo-iia/c4-model&amp;utm_campaign=Badge_Grade)
+[![codecov](https://codecov.io/gh/geronimo-iia/async-btree/branch/master/graph/badge.svg?token=SXD9Z508CA)](https://codecov.io/gh/geronimo-iia/c4-model)
 [![PyPI Version](https://img.shields.io/pypi/v/c4-model.svg)](https://pypi.org/project/c4-model)
 [![PyPI License](https://img.shields.io/pypi/l/c4-model.svg)](https://pypi.org/project/c4-model)
 
