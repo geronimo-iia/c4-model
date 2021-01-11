@@ -2,7 +2,7 @@
 
 
 [![Unix Build Status](https://img.shields.io/travis/geronimo-iia/c4-model/master.svg?label=unix)](https://travis-ci.com/geronimo-iia/c4-model)
-[![codecov](https://codecov.io/gh/geronimo-iia/async-btree/branch/master/graph/badge.svg?token=SXD9Z508CA)](https://codecov.io/gh/geronimo-iia/c4-model)
+[![codecov](https://codecov.io/gh/geronimo-iia/c4-model/branch/master/graph/badge.svg)](https://codecov.io/gh/geronimo-iia/c4-model)
 [![PyPI Version](https://img.shields.io/pypi/v/c4-model.svg)](https://pypi.org/project/c4-model)
 [![PyPI License](https://img.shields.io/pypi/l/c4-model.svg)](https://pypi.org/project/c4-model)
 
