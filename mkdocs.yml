@@ -1,0 +1,25 @@
+site_name: c4 model
+repo_url: https://github.com/geronimo-iia/c4-model
+repo_name: geronimo-iia/c4-model
+
+theme:
+  name: "material"
+  features:
+    - navigation.tracking
+    - navigation.path
+    - navigation.instant
+
+
+plugins:
+  - include-markdown
+  - mkdocstrings
+  - search
+
+nav:
+  - index.md
+  - reference.md
+  - changelog.md
+  - license.md
+  - contributing.md
+  - code_of_conduct.md
+

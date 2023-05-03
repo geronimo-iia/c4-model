@@ -23,7 +23,7 @@ classifiers = [
     ]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.8,<3.12"
 
 
 [tool.poetry.dev-dependencies]
@@ -58,9 +58,10 @@ coverage = {version = "*", extras = ["toml"]}
 # Documentation
 #sphinx = "^2.3.1"
 types-setuptools = "^67.7.0"
-#sphinx_rtd_theme = "^0.4.3"
-#m2r = "^0.2.1"  # M2R converts a markdown file including reStructuredText (rst)
-#autodocsumm = "*"
+mkdocs = {extras = ["markdown-include"], version = "^1.4.3"}
+mkdocstrings = {extras = ["python"], version = "^0.21.2"}
+mkdocs-material = "^9.1.9"
+mkdocs-include-markdown-plugin = "^4.0.4"
 
 
 [tool.black]
