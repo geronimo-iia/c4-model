@@ -10,6 +10,8 @@ FAILURES := .pytest_cache/v/cache/lastfailed
 DIST_FILES := dist/*.tar.gz dist/*.whl
 SPHINX_BUILD_DIR = .cache/sphinx
 
+GIT_COMMIT_SHA := $(shell git rev-parse HEAD)
+
 # MAIN TASKS ##################################################################
 
 .PHONY: all
@@ -31,11 +33,13 @@ help: all
 install: .install .cache ## Install project dependencies
 
 .install: poetry.lock
+	$(MAKE) configure
 	poetry install
 	poetry check
 	@touch $@
 
 poetry.lock: pyproject.toml
+	$(MAKE) configure
 	poetry lock
 	@touch $@
 
@@ -43,7 +47,13 @@ poetry.lock: pyproject.toml
 	@mkdir -p .cache
 
 requirements.txt: poetry.lock ## Generate requirements.txt
-	poetry export --without-hashes -f requirements.txt > requirements.txt
+	@poetry export --without-hashes -f requirements.txt > requirements.txt
+	@sed -i '1d' requirements.txt
+
+
+.PHONY: configure
+configure:
+	@poetry config virtualenvs.in-project true
 
 
 # CHECKS ######################################################################
@@ -75,14 +85,34 @@ $(DIST_FILES): $(MODULES) pyproject.toml
 
 # RELEASE #####################################################################
 
+
 .PHONY: publish
 publish: build ## Publishes the package, previously built with the build command, to the remote repository
-	@git diff --name-only --exit-code
+	$(MAKE) configure
 	poetry publish
-	@PROJECT_RELEASE=$$(poetry run python -c "import c4_model; print(c4_model.__version__);") && \
-		git tag "v$$PROJECT_RELEASE" && \
+	$(MAKE) tag
+
+.PHONY: next-patch-version
+next-patch-version:  ## Increment patch version
+	$(MAKE) configure
+	git checkout main
+	git pull
+	poetry version patch
+	$(MAKE) install
+	git add .
+	git commit -m "Next version"
+	git push origin main
+
+.PHONY: tag
+tag:  ## Tags current repository
+	git diff --name-only --exit-code
+	@PROJECT_RELEASE=$$(poetry version | awk 'END {print $$NF}') ; \
+		git tag "v$$PROJECT_RELEASE" ; \
 		git push origin "v$$PROJECT_RELEASE"
-	@echo "open https://pypi.org/project/c4"
+
+.PHONY: release
+release: publish next-patch-version
+
 
 # DOC #########################################################################
 
@@ -100,7 +130,7 @@ docs:  ## Build and publish sit documentation.
 
 .PHONY: clean
 clean:  ## Delete all generated and temporary files
-	@rm -rf *.spec dist build .eggs *.egg-info .install 
-	@rm -rf .cache .coverage htmlcov .mypy_cache .pytest_cache
-	@find $(PACKAGES) -name '__pycache__' -delete
-	@rm -rf *.egg-info
+	@rm -rf *.spec dist build .eggs *.egg-info .install .cache .coverage htmlcov .mypy_cache .pytest_cache
+	@find $(PACKAGES) -type d -name '__pycache__' -exec rm -rf {} +
+	@find terraform -type d -name '.terragrunt-cache' -exec rm -rf {} +
+

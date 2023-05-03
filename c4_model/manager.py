@@ -1,6 +1,6 @@
 import re
 from collections import UserDict
-from typing import Iterable
+from typing import Iterable, Optional
 
 from .definition import BaseModel
 from .relation_ship import RelationShip
@@ -11,7 +11,7 @@ __all__ = ["C4Manager"]
 class C4Manager(UserDict):
     """C4Manager is an in memory dict of C4 Model."""
 
-    def __init__(self, data: Iterable[BaseModel] = None):
+    def __init__(self, data: Optional[Iterable[BaseModel]] = None):
         super(C4Manager, self).__init__()
         if data:
             for item in data:
@@ -77,12 +77,12 @@ class C4Manager(UserDict):
         """Lookup for all relation ship instance with specified origin."""
         return filter(
             lambda r: r.origin == origin,
-            map(lambda arn: self[arn], self.lookup_relation_ship()),  # type: ignore[return-value]
+            (self[arn] for arn in self.lookup_relation_ship()),  # type: ignore[return-value]
         )
 
     def lookup_relation_ship_with_target(self, target: BaseModel) -> RelationShip:
         """Lookup for all relation ship instance with specified target."""
         return filter(
             lambda r: r.target == target,
-            map(lambda arn: self[arn], self.lookup_relation_ship()),  # type: ignore[return-value]
+            (self[arn] for arn in self.lookup_relation_ship()),  # type: ignore[return-value]
         )
