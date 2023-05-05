@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.1 (dev)
+
+- feat: use mkdocs as doc generator
+- feat: use ruff as successor of flakehell, flake8...
+- fix: github pipeline
+
 ## 1.0.0
 
 - Project structure:
