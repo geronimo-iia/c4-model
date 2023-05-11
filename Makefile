@@ -117,10 +117,14 @@ release: publish next-patch-version
 
 # DOC #########################################################################
 
-.PHONY: docs
-docs:  ## Build and publish sit documentation.
-	@poetry run mkdocs gh-deploy  --clean 
+.PHONY: build-docs
+build-docs:  ## Build and publish sit documentation.
+	@poetry run mkdocs build --clean
 
+
+.PHONY: publish-docs
+publish-docs:  ## Build and publish sit documentation.
+	@poetry run mkdocs gh-deploy  --clean 
 
 # CLEANUP #####################################################################
 
